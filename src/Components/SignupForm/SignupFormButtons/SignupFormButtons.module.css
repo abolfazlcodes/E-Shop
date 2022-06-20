@@ -1,0 +1,25 @@
+.signup__form__btn {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+  padding: 1.3rem 1rem;
+  border-radius: 4rem;
+  font-size: 1.5rem;
+}
+
+.signup__form__btn__submit {
+  color: var(--primary-color);
+  background-color: var(--accent-color-2);
+}
+
+.login__form__btn {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
