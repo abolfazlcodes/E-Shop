@@ -1,0 +1,79 @@
+.advertisment {
+  position: relative;
+  height: 30rem;
+}
+
+.advertisment__image {
+  z-index: 1;
+}
+
+.advertisment__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.advertisment:first-child {
+  grid-area: advertisment1;
+}
+
+.advertisment:nth-child(2) {
+  grid-area: advertisment2;
+}
+
+.advertisment:nth-child(3) {
+  grid-area: advertisment3;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.274);
+  width: 100%;
+  height: 100%;
+}
+
+.advertisment__detail {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: var(--primary-color-2);
+  z-index: 2;
+  line-height: 3rem;
+  width: 20rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.advertisment__detail__title {
+  font-size: 2rem;
+  margin-bottom: 2rem 0;
+}
+
+.advertisment__detail__btn {
+  background-color: var(--primary-color-2);
+  color: var(--primary-color);
+  padding: 0.2rem 0;
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  text-align: center;
+  width: 62%;
+}
+
+@media screen and (max-width: 830px) {
+  .advertisment:first-child {
+    flex: 2 23rem;
+  }
+
+  .advertisment:nth-child(2) {
+    flex: 1 23rem;
+  }
+
+  .advertisment:nth-child(3) {
+    flex: 1 23rem;
+  }
+}
