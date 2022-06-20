@@ -1,0 +1,17 @@
+.error__message {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  margin-left: 1rem;
+}
+
+.signup__terms {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.signup__terms label {
+  font-size: 1.3rem;
+}
