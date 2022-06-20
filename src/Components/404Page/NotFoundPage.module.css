@@ -1,0 +1,160 @@
+/*=============== HOME ===============*/
+.home {
+  background-color: var(--accent-color-2);
+  padding: 9rem 0 2rem;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.home__container {
+  display: grid;
+  align-content: center;
+  row-gap: 2.5rem;
+  max-width: 102.4rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  overflow: hidden;
+}
+
+.home__data {
+  text-align: center;
+  animation: moveInDown 2s 1 ease-in-out;
+}
+
+.home__subtitle {
+  font-size: 2rem;
+}
+
+.home__title {
+  font-size: 5rem;
+  margin: 2rem 0;
+}
+
+.home__description {
+  font-size: 2rem;
+}
+
+.home__button {
+  margin-top: 2rem;
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1rem 1.7rem;
+  border-radius: 3rem;
+  transition: 0.4s;
+  font-size: 1.6rem;
+}
+
+.home__button:hover {
+  box-shadow: 0 4px 12px hsla(38, 69%, 8%, 0.2);
+}
+
+.home__img img {
+  width: 23rem;
+  animation: floaty 1.8s infinite alternate;
+}
+
+.home__img {
+  justify-self: center;
+}
+
+.home__img {
+  animation: moveInUp 2s 1 ease-in-out;
+}
+
+.home__shadow {
+  width: 13rem;
+  height: 2.4rem;
+  background-color: hsla(38, 21%, 19%, 0.16);
+  margin: 0 auto;
+  border-radius: 50%;
+  filter: blur(7px);
+  animation: shadow 1.8s infinite alternate;
+}
+
+/* Animate ghost */
+@keyframes floaty {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1.5rem);
+  }
+}
+
+@keyframes shadow {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.85, 0.85);
+  }
+}
+
+@keyframes moveInUp {
+  0% {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInDown {
+  0% {
+    transform: translateY(-10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .home {
+    padding-top: 7rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .home__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 2rem;
+  }
+  .home__data {
+    text-align: initial;
+  }
+  .home__img img {
+    width: 40rem;
+  }
+  .home__shadow {
+    width: 25rem;
+    height: 4rem;
+  }
+  .home__title {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 1048px) {
+  .home__container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* For 2K resolutions (2048 x 1152, 2048 x 1536) */
+@media screen and (min-width: 2048px) {
+  .home {
+    height: initial;
+    row-gap: 4rem;
+  }
+}
