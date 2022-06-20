@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #161513;
+  --primary-color-2: #fff;
+  --secondary-color: #cecece;
+  --accent-color: #ff0000;
+  --accent-color-2: #fbb03b;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+.icons {
+  font-size: 2rem;
+}
