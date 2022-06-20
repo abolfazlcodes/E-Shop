@@ -1,0 +1,22 @@
+.filter__box {
+  border: 1px solid var(--secondary-color);
+  width: max-content;
+  padding: 1rem;
+  width: 23rem;
+}
+
+.filter__box__header {
+  margin: 1rem 0;
+}
+
+.filter__box__title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.filter__box__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,40 @@
+.filter__box {
+  border: 1px solid var(--secondary-color);
+  width: max-content;
+  padding: 1rem;
+  width: 23rem;
+}
+
+.filter__box__header {
+  margin: 1rem 0;
+}
+
+.filter__box__title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.filter__box__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter__box__option {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: 1px solid var(--secondary-color);
+  padding: 1rem;
+  border-collapse: collapse;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.filter__box__option:hover {
+  border: 1px solid var(--accent-color-2);
+}
+
+.filter__box__option.active {
+  background-color: var(--accent-color-2);
+}
