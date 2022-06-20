@@ -1,0 +1,207 @@
+.product {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.product__details {
+  display: flex;
+  flex: 2;
+  gap: 1rem;
+}
+
+.product__img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 100%;
+}
+
+.product__name__id {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.product__name {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+.product__id {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+}
+
+.product__color {
+  flex: 1;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product__size {
+  flex: 1;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product__amount {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.product__price {
+  flex: 1;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product__quantity__btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #cecece;
+  padding: 1rem 0.5rem;
+  border-radius: 2rem;
+  width: 50%;
+  margin: auto;
+}
+
+.product__quantity__btns i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.quantity {
+  font-size: 1.6rem;
+}
+
+@media screen and (max-width: 850px) {
+  .product__img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .product__name {
+    font-size: 1.3rem;
+  }
+
+  .product__id {
+    font-size: 1.1rem;
+  }
+
+  .product__color,
+  .product__size,
+  .product__amount,
+  .product__price {
+    font-size: 1.2rem;
+  }
+
+  .product__quantity__btns {
+    padding: 0.7rem 0.2rem;
+    width: 70%;
+  }
+
+  .product__quantity__btns i {
+    font-size: 1.1rem;
+  }
+
+  .quantity {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .product__img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .product__name {
+    font-size: 1.1rem;
+  }
+
+  .product__id {
+    font-size: 0.9rem;
+  }
+
+  .product__color,
+  .product__size,
+  .product__amount,
+  .product__price {
+    font-size: 1.1rem;
+  }
+
+  .product__quantity__btns {
+    padding: 0.4rem;
+    width: 100%;
+  }
+
+  .product__quantity__btns i {
+    font-size: 1rem;
+  }
+
+  .quantity {
+    font-size: 1.1rem;
+  }
+
+  .icons {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .product__img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .product__name {
+    font-size: 0.9rem;
+  }
+
+  .product__id {
+    font-size: 0.7rem;
+  }
+
+  .product__color,
+  .product__size,
+  .product__amount,
+  .product__price {
+    font-size: 0.9rem;
+  }
+
+  .product__quantity__btns {
+    padding: 0.3rem;
+  }
+
+  .product__quantity__btns i {
+    font-size: 0.9rem;
+  }
+
+  .quantity {
+    font-size: 0.9rem;
+  }
+
+  .icons {
+    font-size: 1rem;
+  }
+}
