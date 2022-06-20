@@ -1,0 +1,11 @@
+.form__header {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.form__title {
+  font-weight: 400;
+  line-height: 2.7rem;
+  letter-spacing: 0.1rem;
+}
