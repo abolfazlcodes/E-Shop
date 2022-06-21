@@ -1,0 +1,37 @@
+.delivery {
+  flex: 1;
+}
+
+.delivery__title {
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.delivery__methods {
+  height: calc(100% - 10%);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1185px) {
+  .delivery {
+    height: 50rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .delivery__methods {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .delivery__header {
+    margin: 1rem 0;
+  }
+}

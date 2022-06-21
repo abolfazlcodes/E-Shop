@@ -1,0 +1,24 @@
+.whyChooseUs__option {
+  width: 25rem;
+  height: 20rem;
+}
+
+.whyChooseUs__option__image {
+  width: max-content;
+}
+
+.whyChooseUs__option__details {
+  margin: 2rem 0;
+}
+
+.whyChooseUs__option__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.whyChooseUs__option__des {
+  color: #808080;
+  font-size: 1.3rem;
+  line-height: 2rem;
+}

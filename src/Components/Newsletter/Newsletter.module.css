@@ -1,0 +1,139 @@
+.newsletter__wrapper {
+  padding: 1rem;
+}
+
+.newsletter {
+  height: 25rem;
+  position: relative;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.newsletter__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.349);
+  width: 100%;
+  height: 100%;
+}
+
+.newsletter__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.newsletter__header,
+.newsletter__form {
+  z-index: 2;
+  width: 40%;
+}
+
+.newsletter__title {
+  font-size: 2.7rem;
+  color: var(--primary-color-2);
+  font-weight: 400;
+}
+
+.newsletter__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.newsletter__form__input {
+  flex: 3;
+  outline: none;
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+}
+
+.newsletter__form__input,
+.newsletter__form__btn {
+  padding: 1.5rem;
+  border-radius: 5rem;
+  border: none;
+}
+
+.newsletter__form__btn {
+  flex: 1;
+  background-color: var(--accent-color-2);
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1130px) {
+  .newsletter__header,
+  .newsletter__form {
+    width: 50%;
+  }
+
+  .newsletter__title {
+    font-size: 2rem;
+  }
+
+  .newsletter {
+    width: 90%;
+  }
+
+  .newsletter__form__input {
+    font-size: 1.2rem;
+  }
+
+  .newsletter__form__btn {
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .newsletter__wrapper {
+    padding: 0;
+  }
+
+  .newsletter {
+    width: 100%;
+  }
+
+  .newsletter__form__btn {
+    font-size: 1.2rem;
+  }
+
+  .newsletter__form__input,
+  .newsletter__form__btn {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .newsletter__form {
+    flex-direction: column;
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .newsletter {
+    flex-direction: column;
+  }
+  .newsletter__title {
+    text-align: center;
+  }
+
+  .newsletter__form,
+  .newsletter__header {
+    width: 60%;
+  }
+}

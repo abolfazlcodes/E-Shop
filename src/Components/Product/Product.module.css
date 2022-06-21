@@ -1,0 +1,44 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 25rem;
+}
+
+.product__img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.product__details {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__name {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.product__price {
+  font-size: 1.4rem;
+}
+
+.like__icon {
+  position: absolute;
+  top: 4%;
+  right: 10%;
+  padding: 0.5rem;
+  border-radius: 100%;
+  background-color: var(--primary-color-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liked {
+  background-color: var(--accent-color-2);
+  color: var(--primary-color-2);
+}

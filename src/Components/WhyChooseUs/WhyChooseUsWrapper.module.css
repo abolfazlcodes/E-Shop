@@ -1,0 +1,28 @@
+.whyChooseUs {
+  padding: 1rem;
+}
+
+.whyChooseUs__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.whyChooseUs__title {
+  font-size: 2.9rem;
+  font-weight: 400;
+}
+
+.whyChooseUs__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 460px) {
+  .whyChooseUs__title {
+    font-size: 2.2rem;
+  }
+}

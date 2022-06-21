@@ -1,0 +1,23 @@
+.advertisments {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  grid-template-areas: "advertisment1 advertisment1 advertisment2 advertisment3";
+  width: 70%;
+  margin: auto;
+}
+
+@media screen and (max-width: 1180px) {
+  .advertisments {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .advertisments {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

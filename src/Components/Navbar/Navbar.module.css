@@ -1,0 +1,119 @@
+.icons {
+  font-size: 2rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.logo__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 12rem;
+}
+
+.logo__name {
+  font-size: 1.7rem;
+}
+
+.nav__items {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+  width: 100%;
+  margin-top: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in;
+  display: none;
+}
+
+.active {
+  opacity: 1;
+  pointer-events: all;
+  display: flex;
+}
+
+.nav__item {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.nav__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 5rem;
+  height: 100%;
+  background: rgba(206, 206, 206, 0.37);
+  transition: all 0.2s ease-in;
+  transform: skewX(-20deg);
+}
+
+.nav__item:hover.nav__item::before {
+  left: 110%;
+}
+
+.action__btns {
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.btns {
+  cursor: pointer;
+}
+
+.user__icon {
+  display: none;
+}
+
+@media screen and (min-width: 975px) {
+  .navbar {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    width: 80%;
+    margin: 0 auto;
+    color: var(--primary-color-2);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .user__icon {
+    display: block;
+  }
+
+  .menu__icon {
+    display: none;
+  }
+
+  .nav__items {
+    display: flex;
+    flex-direction: row;
+    color: var(--primary-color-2);
+    justify-content: space-evenly;
+    order: 0;
+    margin-top: 0;
+    opacity: 1;
+    width: 40%;
+  }
+
+  .nav__item::before {
+    display: none;
+  }
+}
