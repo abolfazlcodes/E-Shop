@@ -1,11 +1,9 @@
-import styles from "./SignupFormHeader.module.css";
+import styles from "./FormHeader.module.css";
 
-const FormHeader = () => {
+const FormHeader = ({ headerTitle }) => {
   return (
     <header className={`${styles.form__header}`}>
-      <h1 className={`${styles.form__title}`}>
-        Create an account and discover the benefits
-      </h1>
+      <h1 className={`${styles.form__title}`}>{headerTitle}</h1>
     </header>
   );
 };

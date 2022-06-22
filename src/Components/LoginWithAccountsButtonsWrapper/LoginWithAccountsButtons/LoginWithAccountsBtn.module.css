@@ -1,0 +1,19 @@
+.loginWithAccountBtn {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 4rem;
+  background-color: var(--primary-color-2);
+}
+
+.loginWithAccountBtnName {
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 410px) {
+  .loginWithAccountBtn {
+    width: 50%;
+  }
+}
