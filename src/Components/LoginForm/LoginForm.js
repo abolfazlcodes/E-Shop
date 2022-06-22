@@ -1,23 +1,21 @@
+import styles from "../SignupForm/SignupForm.module.css";
 import FormHeader from "../FormHeader/FormHeader";
-import styles from "./SignupForm.module.css";
 import InputComponent from "../InputComponent/InputComponent";
-import SignupFormButtons from "./SignupFormButtons/SignupFormButtons";
+import LoginWithAccountsBtnsWrapper from "../LoginWithAccountsButtonsWrapper/LoginWithAccountsBtnsWrapper";
 
-const SignupForm = () => {
+const LoginForm = () => {
   return (
     <div className={`${styles.signup__wrapper}`}>
       <div className={`${styles.form}`}>
-        <FormHeader headerTitle="Create an account and discover the benefits" />
+        <FormHeader headerTitle="Login to your account" />
         <form className={`${styles.signup__form}`}>
           <InputComponent />
           <InputComponent />
-          <InputComponent />
-          <InputComponent />
-          <SignupFormButtons />
+          <LoginWithAccountsBtnsWrapper />
         </form>
       </div>
     </div>
   );
 };
 
-export default SignupForm;
+export default LoginForm;
