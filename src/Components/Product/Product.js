@@ -1,5 +1,6 @@
 import styles from "./Product.module.css";
 import productImage from "../../assets/AdobeStock_236655481.jpg";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
 const Product = () => {
   return (
@@ -13,7 +14,7 @@ const Product = () => {
       </div>
 
       <div className={`${styles.like__icon} ${styles.liked}}`}>
-        <i className={`heart icon`}></i>
+        <MdFavoriteBorder />
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
 import styles from "./ProductDetails.module.css";
 import productImage from "../../assets/hero-cover-1.jpg";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import { FaTruck } from "react-icons/fa";
+import { MdRemove, MdAdd } from "react-icons/md";
 
 const ProductDetails = () => {
   return (
@@ -7,7 +10,7 @@ const ProductDetails = () => {
       <div className={`${styles.product__image}`}>
         <img src={productImage} alt="" className={`${styles.product__img}`} />
         <div className={`${styles.like__icon} ${styles.liked}`}>
-          <i className="fa-regular fa-heart"></i>
+          <MdFavoriteBorder />
         </div>
       </div>
       <div className={`${styles.product__detail}`}>
@@ -16,7 +19,7 @@ const ProductDetails = () => {
             className={`${styles.product__delivery__type} ${styles.product__delivery__shipment}`}
           >
             <div className={`${styles.product__delivery__icon}`}>
-              <i className="fa-solid fa-truck delivery__icon"></i>
+              <FaTruck className={`${styles.delivery__icon}`} />
             </div>
             <div className={`${styles.product__delivery__details}`}>
               <span className={`${styles.product__delivery__heading}`}>
@@ -31,7 +34,7 @@ const ProductDetails = () => {
             className={`${styles.product__delivery__type} ${styles.product__delivery__express}`}
           >
             <div className={`${styles.product__delivery__icon}`}>
-              <i className="fa-solid fa-truck delivery__icon"></i>
+              <FaTruck className={`${styles.delivery__icon}`} />
             </div>
             <div className={`${styles.product__delivery__details}`}>
               <span className={`${styles.product__delivery__heading}`}>
@@ -109,9 +112,13 @@ const ProductDetails = () => {
               Quantity:
             </span>
             <div className={`${styles.product__quantity__btns}`}>
-              <i className="fa-solid fa-minus"></i>
+              <i>
+                <MdRemove />
+              </i>
               <span className={`${styles.quantity}`}>1</span>
-              <i className="fa-solid fa-plus"></i>
+              <i>
+                <MdAdd />
+              </i>
             </div>
           </div>
 

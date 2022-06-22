@@ -1,5 +1,6 @@
 import styles from "./ShoppingCartProduct.module.css";
 import image from "../../assets/sample.jpg";
+import { MdRemove, MdClear, MdAdd } from "react-icons/md";
 
 const ShoppingCartProduct = () => {
   return (
@@ -21,16 +22,20 @@ const ShoppingCartProduct = () => {
       </div>
       <div className={`${styles.product__amount}`}>
         <div className={`${styles.product__quantity__btns}`}>
-          <i className="fa-solid fa-minus"></i>
+          <i>
+            <MdRemove />
+          </i>
           <span className={`${styles.quantity}`}>1</span>
-          <i className="fa-solid fa-plus"></i>
+          <i>
+            <MdAdd />
+          </i>
         </div>
       </div>
       <div className={`${styles.product__price}`}>
         <span className={`${styles.price}`}>$88.88</span>
       </div>
       <div className={`${styles.product__btn}`}>
-        <i className="fa-solid fa-times icons"></i>
+        <MdClear className={`${styles.icons}`} />
       </div>
     </article>
   );

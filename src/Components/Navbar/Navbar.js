@@ -1,6 +1,11 @@
 import styles from "./Navbar.module.css";
 import logo from "../../assets/logo-white.svg";
 import logoBlack from "../../assets/Logo.svg";
+import {
+  MdShoppingCart,
+  MdOutlinePersonOutline,
+  MdOutlineMenu,
+} from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -18,11 +23,11 @@ const Navbar = () => {
 
       <div className={`${styles.action__btns}`}>
         <span className={`${styles.btns} ${styles.cart__btn}`}>
-          <i className={`fa-solid fa-cart-shopping icons`}></i>
+          <MdShoppingCart className={`${styles.icons}`} />
         </span>
         <span className={`${styles.btns} ${styles.menu__btn}`}>
-          <i className={`fa-regular fa-user icons user__icon`}></i>
-          <i className={`fa-solid fa-bars icons menu__icon`}></i>
+          <MdOutlinePersonOutline className={`${styles.icons}`} />
+          <MdOutlineMenu className={`${styles.icons}`} />
         </span>
       </div>
     </nav>
