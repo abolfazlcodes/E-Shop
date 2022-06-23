@@ -7,14 +7,14 @@ import optionImage4 from "../../assets/icon8.jpg";
 
 const WhyChooseUsWrapper = () => {
   return (
-    <section class={`${styles.whyChooseUs}`}>
-      <header class={`${styles.whyChooseUs__header}`}>
-        <h2 class={`${styles.whyChooseUs__title}`}>
+    <section className={`${styles.whyChooseUs}`}>
+      <header className={`${styles.whyChooseUs__header}`}>
+        <h2 className={`${styles.whyChooseUs__title}`}>
           Why should you choose us?
         </h2>
       </header>
 
-      <div class={`${styles.whyChooseUs__options}`}>
+      <div className={`${styles.whyChooseUs__options}`}>
         <WhyChooseUsOption
           image={optionImage1}
           title="Free Shipping"
