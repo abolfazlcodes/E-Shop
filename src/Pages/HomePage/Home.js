@@ -2,17 +2,16 @@ import HeroSection from "../../Components/HeroSection/HeroSection";
 import AdvertismentWrapper from "../../Components/AdvertismentsWrapper/AdvertismentWrapper";
 import WhyChooseUsWrapper from "../../Components/WhyChooseUs/WhyChooseUsWrapper";
 import Newsletter from "../../Components/Newsletter/Newsletter";
-import Footer from "../../Components/Footer/Footer";
+import Layout from "../../Layout/Layout";
 
 const HomePage = () => {
   return (
-    <>
+    <Layout>
       <HeroSection />
       <AdvertismentWrapper />
       <WhyChooseUsWrapper />
       <Newsletter />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

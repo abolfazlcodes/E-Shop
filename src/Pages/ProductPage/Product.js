@@ -1,14 +1,13 @@
 import ProductDetails from "../../Components/ProductDetails/ProductDetails";
 import Newsletter from "../../Components/Newsletter/Newsletter";
-import Footer from "../../Components/Footer/Footer";
+import Layout from "../../Layout/Layout";
 
 const ProductDetailsPage = () => {
   return (
-    <>
+    <Layout>
       <ProductDetails />
       <Newsletter />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
