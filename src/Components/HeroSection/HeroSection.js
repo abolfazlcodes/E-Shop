@@ -7,7 +7,6 @@ import backgroundImage3 from "../../assets/hero-cover-3.jpg";
 const HeroSection = () => {
   return (
     <section className={`${styles.hero__section}`}>
-      <Navbar />
       <div className={`${styles.backgrounds}`}>
         <img
           src={backgroundImage1}
