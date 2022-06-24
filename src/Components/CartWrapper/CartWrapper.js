@@ -1,11 +1,16 @@
+import styles from "./CartWrapper.module.css";
+import ShoppingCartHeader from "../ShoppingCartHeader/ShoppingCartHeader";
+import ShoppingCartProductWrapper from "../ShoppingCartProductWrapper/ShoppingCartProductWrapper";
+import ShoppingCartTotal from "../ShoppingCartTotal/ShoppingCartTotal";
+
 const CartWrapper = () => {
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.shopping__cart}`}>
-        <header class={`${styles.shopping__cart__header}`}>
-          <h1 class={`${styles.shopping__cart__title}`}>Shopping Cart</h1>
+        <header className={`${styles.shopping__cart__header}`}>
+          <h1 className={`${styles.shopping__cart__title}`}>Shopping Cart</h1>
         </header>
-        <div class={`${styles.shopping__cart__products}`}>
+        <div className={`${styles.shopping__cart__products}`}>
           <ShoppingCartHeader />
           <ShoppingCartProductWrapper />
           <ShoppingCartTotal />

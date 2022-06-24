@@ -1,4 +1,5 @@
 import ShoppingCartProduct from "../ShoppingCartProduct/ShoppingCartProduct";
+import styles from "./ShoppingCartProductWrapper.module.css";
 
 const ShoppingCartProductWrapper = () => {
   return (
