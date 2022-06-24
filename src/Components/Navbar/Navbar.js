@@ -1,13 +1,19 @@
 import styles from "./Navbar.module.css";
-import logo from "../../assets/logo-white.svg";
-import logoBlack from "../../assets/Logo.svg";
+import logo from "../../assets/Logo.svg";
 import {
   MdShoppingCart,
   MdOutlinePersonOutline,
   MdOutlineMenu,
 } from "react-icons/md";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [hideMenu, setHideMenue] = useState(false);
+
+  const showMenuHandler = () => {
+    setHideMenue(!hideMenu);
+  };
+
   return (
     <nav className={`${styles.navbar}`}>
       <div className={`${styles.logo__wrapper}`}>
@@ -15,7 +21,11 @@ const Navbar = () => {
         <span className={`${styles.logo__name}`}>E-Shop</span>
       </div>
 
-      <ul className={`${styles.nav__items}`}>
+      <ul
+        className={`${styles.nav__items} ${
+          hideMenu ? styles.active : styles.nav__items
+        }`}
+      >
         <li className={`${styles.nav__item}`}>men</li>
         <li className={`${styles.nav__item}`}>women</li>
         <li className={`${styles.nav__item}`}>kids</li>
@@ -26,8 +36,13 @@ const Navbar = () => {
           <MdShoppingCart className={`${styles.icons}`} />
         </span>
         <span className={`${styles.btns} ${styles.menu__btn}`}>
-          <MdOutlinePersonOutline className={`${styles.icons}`} />
-          <MdOutlineMenu className={`${styles.icons}`} />
+          <MdOutlinePersonOutline
+            className={`${styles.icons} ${styles.user__icon}`}
+          />
+          <MdOutlineMenu
+            className={`${styles.icons} ${styles.menu__icon}`}
+            onClick={showMenuHandler}
+          />
         </span>
       </div>
     </nav>
