@@ -1,5 +1,6 @@
 .icons {
   font-size: 2rem;
+  margin: 0 0.2rem;
 }
 
 .navbar {
@@ -68,7 +69,7 @@
 }
 
 .action__btns {
-  width: 15rem;
+  width: 10rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -83,17 +84,6 @@
 }
 
 @media screen and (min-width: 975px) {
-  .navbar {
-    position: absolute;
-    top: 8%;
-    left: 50%;
-    width: 80%;
-    margin: 0 auto;
-    color: var(--primary-color-2);
-    transform: translate(-50%, -50%);
-    z-index: 2;
-  }
-
   .user__icon {
     display: block;
   }
@@ -111,6 +101,7 @@
     margin-top: 0;
     opacity: 1;
     width: 40%;
+    color: var(--primary-color);
   }
 
   .nav__item::before {
