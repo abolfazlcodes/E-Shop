@@ -12,6 +12,19 @@ const options = countriesList.map((list) => {
   };
 });
 
+// const colourStyles = {
+//   control: styles => ({ ...styles, backgroundColor: 'white' }),
+//   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+//     const color = chroma(data.color);
+//     return {
+//       ...styles,
+//       backgroundColor: isDisabled ? 'red' : blue,
+//       color: '#FFF',
+//       cursor: isDisabled ? 'not-allowed' : 'default',
+//     },
+//   },
+// };
+
 const CountriesSelectBox = ({ errorMessage }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
