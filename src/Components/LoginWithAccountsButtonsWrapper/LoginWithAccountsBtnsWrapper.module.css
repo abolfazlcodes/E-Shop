@@ -6,11 +6,12 @@
   gap: 1rem;
 }
 
-.facebook {
-  background-color: var(--blue-color);
+.facebookStyle {
+  background-color: #3b5998;
   color: var(--primary-color-2);
 }
 
 .gmail {
   border: 1px solid var(--accent-color);
+  background-color: var(--primary-color-2);
 }

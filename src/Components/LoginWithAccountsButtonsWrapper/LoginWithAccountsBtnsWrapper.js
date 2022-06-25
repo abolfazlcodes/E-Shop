@@ -9,7 +9,7 @@ const LoginWithAccountsBtnsWrapper = () => {
       <LoginWithAccountsBtn
         logo={facebookLogo}
         name="Facebook"
-        style={styles.facebook}
+        style={styles.facebookStyle}
       />
       <LoginWithAccountsBtn
         logo={gmailLogo}
