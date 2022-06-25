@@ -12,30 +12,30 @@ const ShoppingCartProduct = () => {
         <div className={`${styles.product__name__id}`}>
           <p className={`${styles.product__name}`}>T-Shirt Summer Vibes</p>
           <span className={`${styles.product__id}`}>#261311</span>
+          <div className={`${styles.product__tags}`}>
+            <span className={`${styles.product__tag}`}>White</span>
+            <span className={`${styles.product__tag}`}>xl</span>
+          </div>
         </div>
       </div>
-      <div className={`${styles.product__color}`}>
-        <span className={`${styles.color}`}>White</span>
-      </div>
-      <div className={`${styles.product__size}`}>
-        <span className={`${styles.size}`}>xl</span>
-      </div>
-      <div className={`${styles.product__amount}`}>
-        <div className={`${styles.product__quantity__btns}`}>
-          <i>
-            <MdRemove />
-          </i>
-          <span className={`${styles.quantity}`}>1</span>
-          <i>
+      <div className={`${styles.product__buttons}`}>
+        <div className={`${styles.product__quantity}`}>
+          <span className={`${styles.product__quantity__btn}`}>
             <MdAdd />
+          </span>
+          <span className={`${styles.product__quantity__num}`}>1</span>
+          <span className={`${styles.product__quantity__btn}`}>
+            <MdRemove />
+          </span>
+        </div>
+        <div className={`${styles.product__price}`}>
+          <span className={`${styles.price}`}>$88.88</span>
+        </div>
+        <div className={`${styles.product__delete__btn}`}>
+          <i>
+            <MdClear />
           </i>
         </div>
-      </div>
-      <div className={`${styles.product__price}`}>
-        <span className={`${styles.price}`}>$88.88</span>
-      </div>
-      <div className={`${styles.product__btn}`}>
-        <MdClear className={`${styles.icons}`} />
       </div>
     </article>
   );
