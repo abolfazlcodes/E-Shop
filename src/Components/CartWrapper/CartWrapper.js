@@ -1,5 +1,4 @@
 import styles from "./CartWrapper.module.css";
-import ShoppingCartHeader from "../ShoppingCartHeader/ShoppingCartHeader";
 import ShoppingCartProductWrapper from "../ShoppingCartProductWrapper/ShoppingCartProductWrapper";
 import ShoppingCartTotal from "../ShoppingCartTotal/ShoppingCartTotal";
 
@@ -11,7 +10,6 @@ const CartWrapper = () => {
           <h1 className={`${styles.shopping__cart__title}`}>Shopping Cart</h1>
         </header>
         <div className={`${styles.shopping__cart__products}`}>
-          <ShoppingCartHeader />
           <ShoppingCartProductWrapper />
           <ShoppingCartTotal />
         </div>
