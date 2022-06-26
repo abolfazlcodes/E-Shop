@@ -2,10 +2,6 @@
   margin: 1rem 0;
 }
 
-.select__box {
-  margin-bottom: 1rem;
-}
-
 .error__message {
   color: var(--accent-color);
   font-size: 1.3rem;

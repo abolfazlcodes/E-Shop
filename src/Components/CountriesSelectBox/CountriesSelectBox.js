@@ -12,6 +12,16 @@ const options = countriesList.map((list) => {
   };
 });
 
+const colourStyles = {
+  control: (styles) => ({
+    ...styles,
+    backgroundColor: "white",
+    borderRadius: "5rem",
+    padding: "0.5rem 1rem",
+    margin: "1rem 0",
+  }),
+};
+
 const CountriesSelectBox = ({ errorMessage }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -21,7 +31,7 @@ const CountriesSelectBox = ({ errorMessage }) => {
         options={options}
         defaultValue={selectedOption}
         onChange={setSelectedOption}
-        className={`${styles.select__box}`}
+        styles={colourStyles}
       />
       <span className={`${styles.error__message}`}></span>
     </div>

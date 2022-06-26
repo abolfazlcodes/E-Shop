@@ -2,7 +2,7 @@ import styles from "./PasswordInputComponent.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 
-const PasswordInputComponent = ({ errorMessage }) => {
+const PasswordInputComponent = ({ name, placeholder, errorMessage }) => {
   const [isPassword, setIsPassword] = useState(true);
 
   const changeTypeHandler = () => {
@@ -12,10 +12,10 @@ const PasswordInputComponent = ({ errorMessage }) => {
   return (
     <div className={`${styles.input__group}`}>
       <input
-        name="FirstName"
+        name={name}
         type={isPassword ? "password" : "text"}
         className={`${styles.signup__form__input}`}
-        placeholder="FirstName"
+        placeholder={placeholder}
       />
       {isPassword ? (
         <FaEyeSlash
