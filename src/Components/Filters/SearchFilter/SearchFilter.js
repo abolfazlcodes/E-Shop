@@ -1,3 +1,6 @@
+import styles from "./SearchFilter.module.css";
+import InputComponent from "../../InputComponent/InputComponent";
+
 const SearchFilter = () => {
   return (
     <div className={`${styles.filter__box} ${styles.search__filter}`}>

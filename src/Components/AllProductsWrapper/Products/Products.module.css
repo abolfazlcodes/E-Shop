@@ -1,0 +1,32 @@
+.products {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.products__header {
+  margin-bottom: 2rem;
+}
+
+.products::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 1180px) {
+  .products {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .products__container {
+    overflow-y: visible;
+  }
+
+  .products__header {
+    display: none;
+  }
+}

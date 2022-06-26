@@ -38,3 +38,24 @@
 .filter__box__option.active {
   background-color: var(--accent-color-2);
 }
+
+@media screen and (max-width: 705px) {
+  .filter__box {
+    width: 90%;
+  }
+
+  .filter__box__title {
+    font-size: 1.2rem;
+  }
+
+  .filter__box__options .filter__box__option {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 402px) {
+  .filter__box__options .filter__box__option {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
