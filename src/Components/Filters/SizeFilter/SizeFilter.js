@@ -1,3 +1,5 @@
+import styles from "./SizeFilter.module.css";
+
 const SizeFilter = () => {
   return (
     <div className={`${styles.filter__box} ${styles.size__filter}`}>

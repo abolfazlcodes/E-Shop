@@ -20,3 +20,13 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 705px) {
+  .filter__box {
+    width: 90%;
+  }
+
+  .filter__box__title {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 705px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 0;
+    height: max-content;
+  }
+}

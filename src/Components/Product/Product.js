@@ -14,7 +14,7 @@ const Product = () => {
       </div>
 
       <div className={`${styles.like__icon} ${styles.liked}}`}>
-        <MdFavoriteBorder />
+        <MdFavoriteBorder className={`${styles.icon}`} />
       </div>
     </div>
   );

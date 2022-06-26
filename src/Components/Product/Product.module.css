@@ -18,7 +18,7 @@
 }
 
 .product__name {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.6rem;
 }
 
@@ -30,7 +30,7 @@
   position: absolute;
   top: 4%;
   right: 10%;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 100%;
   background-color: var(--primary-color-2);
   display: flex;
@@ -41,4 +41,39 @@
 .liked {
   background-color: var(--accent-color-2);
   color: var(--primary-color-2);
+}
+
+.icon {
+  font-size: 1.7rem;
+}
+
+@media screen and (max-width: 1180px) {
+  .product {
+    width: 17rem;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .product__name {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .product__price {
+    font-size: 1rem;
+  }
+
+  .like__icon {
+    padding: 0.5rem;
+  }
+
+  .icon {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 402px) {
+  .product {
+    width: 14rem;
+  }
 }
