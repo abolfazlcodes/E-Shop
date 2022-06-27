@@ -1,7 +1,9 @@
 import styles from "./Products.module.css";
 import Product from "../../Product/Product";
+import data from "../../../data";
 
 const Products = () => {
+  console.log(data);
   return (
     <div className={`${styles.products__container}`}>
       <header className={`${styles.products__header}`}>
@@ -9,11 +11,9 @@ const Products = () => {
       </header>
 
       <div className={`${styles.products}`}>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {data.map((product) => {
+          return <Product product={product} key={product.id} />;
+        })}
       </div>
     </div>
   );

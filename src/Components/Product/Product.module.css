@@ -3,6 +3,12 @@
   flex-direction: column;
   position: relative;
   width: 25rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.product:hover {
+  transform: translateY(-0.4rem);
 }
 
 .product__img {
