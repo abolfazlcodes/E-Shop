@@ -1,4 +1,5 @@
 import styles from "./SignupFormButtons.module.css";
+import { NavLink } from "react-router-dom";
 
 const SignupFormButtons = ({ buttonText, linkTo, switchFormButtonText }) => {
   return (
@@ -9,9 +10,9 @@ const SignupFormButtons = ({ buttonText, linkTo, switchFormButtonText }) => {
       >
         {buttonText}
       </a>
-      <a href="#" className={`${styles.login__form__btn}`}>
+      <NavLink className={`${styles.login__form__btn}`} to={linkTo}>
         {switchFormButtonText}
-      </a>
+      </NavLink>
     </div>
   );
 };

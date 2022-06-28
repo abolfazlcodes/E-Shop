@@ -1,11 +1,12 @@
 import { useContext, useReducer, createContext } from "react";
 import productsReducer from "./ProductsReducer";
+import data from "../data";
 
 const ProductsContext = createContext();
 const ProductsContextDispatcher = createContext();
 
-const initialState = {
-  products: [],
+export const initialState = {
+  products: [...data],
   shoppingCart: [],
   favourites: [],
   totalPrice: 0,

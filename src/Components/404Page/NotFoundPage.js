@@ -1,5 +1,6 @@
 import styles from "./NotFoundPage.module.css";
 import ghost from "../../assets/ghost-img.png";
+import { NavLink } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
@@ -12,9 +13,9 @@ const NotFoundPage = () => {
             We can't seem to find the page <br />
             you are looking for.
           </p>
-          <a href="#" className={`${styles.home__button}`}>
+          <NavLink className={`${styles.home__button}`} to="/">
             Go Home
-          </a>
+          </NavLink>
         </div>
 
         <div className={`${styles.home__img}`}>

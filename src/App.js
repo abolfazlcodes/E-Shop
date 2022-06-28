@@ -4,13 +4,11 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        {routes.map((route) => (
-          <Route {...route} key={route.id} />
-        ))}
-      </Routes>
-    </div>
+    <Routes>
+      {routes.map((route) => (
+        <Route {...route} key={route.id} />
+      ))}
+    </Routes>
   );
 }
 

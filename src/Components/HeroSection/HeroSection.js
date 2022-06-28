@@ -1,8 +1,8 @@
 import styles from "./HeroSection.module.css";
-import Navbar from "../Navbar/Navbar";
 import backgroundImage1 from "../../assets/hero-cover-1.jpg";
 import backgroundImage2 from "../../assets/hero-cover-2.jpg";
 import backgroundImage3 from "../../assets/hero-cover-3.jpg";
+import { NavLink } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -19,9 +19,12 @@ const HeroSection = () => {
         <h1 className={`${styles.hero__header__title}`}>
           Sale of the summer collection
         </h1>
-        <a href="#" className={`${styles.btns} ${styles.shop__btn}`}>
+        <NavLink
+          className={`${styles.btns} ${styles.shop__btn}`}
+          to="/products"
+        >
           Shop now
-        </a>
+        </NavLink>
       </header>
     </section>
   );

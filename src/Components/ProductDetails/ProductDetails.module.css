@@ -123,6 +123,9 @@
 .product__price {
   font-size: 2.5rem;
   color: #cecece;
+}
+
+.product__price__off {
   text-decoration: line-through;
 }
 

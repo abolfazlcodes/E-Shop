@@ -1,14 +1,22 @@
 import styles from "./ProductDetails.module.css";
-import productImage from "../../assets/hero-cover-1.jpg";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { FaTruck } from "react-icons/fa";
 import { MdRemove, MdAdd } from "react-icons/md";
+import { useParams } from "react-router-dom";
+import { initialState } from "../../Context/ProductsProvider";
 
 const ProductDetails = () => {
+  const { id } = useParams();
+  const product = initialState.products.find((product) => product.id === +id);
+
   return (
     <div className={`${styles.product__details}`}>
       <div className={`${styles.product__image}`}>
-        <img src={productImage} alt="" className={`${styles.product__img}`} />
+        <img
+          src={product.image}
+          alt={product.name}
+          className={`${styles.product__img}`}
+        />
         <div className={`${styles.like__icon} ${styles.liked}`}>
           <MdFavoriteBorder />
         </div>
@@ -51,15 +59,25 @@ const ProductDetails = () => {
           <span className={`${styles.product__banner}`}>sale</span>
           <span className={`${styles.product__id}`}>
             Product ID:
-            <span>261311</span>
+            <span>{product.id}</span>
           </span>
         </div>
 
         <div className={`${styles.product__detail__name}`}>
-          <h1 className={`${styles.product__name}`}>T-Shirt Summer Vibes</h1>
+          <h1 className={`${styles.product__name}`}>{product.name}</h1>
           <div className={`${styles.product__detail__price}`}>
-            <span className={`${styles.product__price__discount}`}>$89.99</span>
-            <span className={`${styles.product__price}`}>$119.99</span>
+            {product.offPrice && (
+              <span className={`${styles.product__price__discount}`}>
+                {product.offPrice && product.offPrice}
+              </span>
+            )}
+            <span
+              className={`${styles.product__price} ${
+                product.offPrice && styles.product__price__off
+              } `}
+            >
+              ${product.price}
+            </span>
           </div>
         </div>
 

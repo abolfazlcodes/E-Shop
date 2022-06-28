@@ -10,11 +10,13 @@ const LoginWithAccountsBtnsWrapper = () => {
         logo={facebookLogo}
         name="Facebook"
         style={styles.facebookStyle}
+        linkTo="/facebook-login"
       />
       <LoginWithAccountsBtn
         logo={gmailLogo}
         name="Gmail"
         style={styles.gmail}
+        linkTo="/gmail-login"
       />
     </div>
   );
