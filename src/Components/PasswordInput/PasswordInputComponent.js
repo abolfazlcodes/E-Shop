@@ -2,7 +2,7 @@ import styles from "./PasswordInputComponent.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 
-const PasswordInputComponent = ({ name, placeholder, errorMessage }) => {
+const PasswordInputComponent = ({ name, placeholder, formik }) => {
   const [isPassword, setIsPassword] = useState(true);
 
   const changeTypeHandler = () => {
@@ -15,7 +15,9 @@ const PasswordInputComponent = ({ name, placeholder, errorMessage }) => {
         name={name}
         type={isPassword ? "password" : "text"}
         className={`${styles.signup__form__input}`}
+        {...formik.getFieldProps({ name })}
         placeholder={placeholder}
+        autoComplete="current-password"
       />
       {isPassword ? (
         <FaEyeSlash
@@ -28,8 +30,11 @@ const PasswordInputComponent = ({ name, placeholder, errorMessage }) => {
           onClick={changeTypeHandler}
         />
       )}
-
-      <span className={`${styles.error__message}`}></span>
+      {formik.touched[name] && formik.errors[name] && (
+        <span className={`${styles.error__message}`}>
+          {formik.errors[name]}
+        </span>
+      )}
     </div>
   );
 };

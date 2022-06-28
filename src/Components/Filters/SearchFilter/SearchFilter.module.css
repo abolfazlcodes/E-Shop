@@ -21,6 +21,26 @@
   justify-content: space-between;
 }
 
+.signup__form__input {
+  margin: 1rem 0;
+  padding: 1.5rem 2rem;
+  border-radius: 5rem;
+  outline: none;
+  border: 1px solid var(--secondary-color);
+  letter-spacing: 0.1rem;
+  color: var(--secondary-color);
+  transition: all 0.2s ease-in;
+  width: 100%;
+}
+
+.signup__form__input:focus {
+  box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.signup__form__input::placeholder {
+  letter-spacing: 0.2rem;
+}
+
 @media screen and (max-width: 705px) {
   .filter__box {
     width: 90%;

@@ -9,7 +9,7 @@ const Checkout = () => {
       <header className={`${styles.payment__header}`}>
         <h1 className={`${styles.payment__title}`}>Shipping and Payment</h1>
       </header>
-      <div class={`${styles.shipping__Delivery__wrapper}`}>
+      <div className={`${styles.shipping__Delivery__wrapper}`}>
         <ShippingWrapper />
         <DeliveryWrapper />
       </div>

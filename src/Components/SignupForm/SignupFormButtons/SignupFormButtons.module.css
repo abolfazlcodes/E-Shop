@@ -17,6 +17,14 @@
 .signup__form__btn__submit {
   color: var(--primary-color);
   background-color: var(--accent-color-2);
+  border: none;
+  cursor: pointer;
+}
+
+.signup__form__btn__submit:disabled {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  cursor: not-allowed;
 }
 
 .login__form__btn {

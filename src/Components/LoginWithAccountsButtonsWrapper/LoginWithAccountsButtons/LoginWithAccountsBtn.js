@@ -3,12 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const LoginWithAccountsBtn = ({ logo, name, style, linkTo }) => {
   return (
-    <div className={`${styles.loginWithAccountBtn} ${style}`}>
+    <NavLink to={linkTo} className={`${styles.loginWithAccountBtn} ${style}`}>
       <img src={logo} alt={name} />
-      <NavLink to={linkTo} className={`${styles.loginWithAccountBtnName}`}>
-        {name}
-      </NavLink>
-    </div>
+      <span className={`${styles.loginWithAccountBtnName}`}></span>
+      {name}
+    </NavLink>
   );
 };
 
