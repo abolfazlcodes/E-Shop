@@ -1,5 +1,4 @@
 import styles from "./ShoppingCartProduct.module.css";
-import image from "../../assets/sample.jpg";
 import { MdRemove, MdClear, MdAdd } from "react-icons/md";
 
 const ShoppingCartProduct = () => {
@@ -7,7 +6,7 @@ const ShoppingCartProduct = () => {
     <article className={`${styles.product}`}>
       <div className={`${styles.product__details}`}>
         <div className={`${styles.product__image}`}>
-          <img src={image} alt="" className={`${styles.product__img}`} />
+          <img src="" alt="" className={`${styles.product__img}`} />
         </div>
         <div className={`${styles.product__name__id}`}>
           <p className={`${styles.product__name}`}>T-Shirt Summer Vibes</p>

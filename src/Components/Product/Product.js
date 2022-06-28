@@ -1,9 +1,15 @@
 import styles from "./Product.module.css";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Product = ({ product }) => {
+  const { pathname } = useLocation();
+
   return (
-    <div className={`${styles.product}`}>
+    <NavLink
+      className={`${styles.product}`}
+      to={`${pathname}/product/${product.id}`}
+    >
       <div className={`${styles.product__image}`}>
         <img
           src={product.image}
@@ -19,7 +25,7 @@ const Product = ({ product }) => {
       <div className={`${styles.like__icon} ${styles.liked}}`}>
         <MdFavoriteBorder className={`${styles.icon}`} />
       </div>
-    </div>
+    </NavLink>
   );
 };
 

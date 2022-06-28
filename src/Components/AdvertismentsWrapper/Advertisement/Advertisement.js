@@ -1,4 +1,5 @@
 import styles from "./Advertisement.module.css";
+import { NavLink } from "react-router-dom";
 
 const Advertisment = ({
   advertismentImage,
@@ -22,9 +23,12 @@ const Advertisment = ({
           <br />
           {advertismentTitle2}
         </h2>
-        <a href="#" className={`${styles.advertisment__detail__btn}`}>
+        <NavLink
+          to="/products"
+          className={`${styles.advertisment__detail__btn}`}
+        >
           {advertismentBtnText}
-        </a>
+        </NavLink>
       </div>
     </article>
   );

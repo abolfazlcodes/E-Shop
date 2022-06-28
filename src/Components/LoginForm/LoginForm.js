@@ -16,7 +16,7 @@ const LoginForm = () => {
           <LoginWithAccountsBtnsWrapper />
           <SignupFormButtons
             buttonText="Sign in"
-            linkTo=""
+            linkTo="/signup"
             switchFormButtonText="Not a member yet? Sign up"
           />
         </form>

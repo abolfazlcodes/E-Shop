@@ -16,7 +16,7 @@ const SignupForm = () => {
           <PasswordInputComponent name="password" placeholder="Password" />
           <SignupFormButtons
             buttonText="Sign up"
-            linkTo=""
+            linkTo="/login"
             switchFormButtonText="Already have an account? Login"
           />
         </form>

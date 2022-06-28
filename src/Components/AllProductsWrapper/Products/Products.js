@@ -1,9 +1,8 @@
 import styles from "./Products.module.css";
 import Product from "../../Product/Product";
-import data from "../../../data";
+import { initialState } from "../../../Context/ProductsProvider";
 
 const Products = () => {
-  console.log(data);
   return (
     <div className={`${styles.products__container}`}>
       <header className={`${styles.products__header}`}>
@@ -11,7 +10,7 @@ const Products = () => {
       </header>
 
       <div className={`${styles.products}`}>
-        {data.map((product) => {
+        {initialState.products.map((product) => {
           return <Product product={product} key={product.id} />;
         })}
       </div>
