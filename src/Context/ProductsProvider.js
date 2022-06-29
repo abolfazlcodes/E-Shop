@@ -12,13 +12,13 @@ export const initialState = {
   totalPrice: 0,
 };
 
-const ProductProvider = ({ Children }) => {
+const ProductProvider = ({ children }) => {
   const [products, dispatch] = useReducer(productsReducer, initialState);
 
   return (
     <ProductsContext.Provider value={products}>
       <ProductsContextDispatcher.Provider value={dispatch}>
-        {Children}
+        {children}
       </ProductsContextDispatcher.Provider>
     </ProductsContext.Provider>
   );
