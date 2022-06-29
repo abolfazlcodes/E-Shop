@@ -3,11 +3,20 @@ import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { FaTruck } from "react-icons/fa";
 import { MdRemove, MdAdd } from "react-icons/md";
 import { useParams } from "react-router-dom";
-import { initialState } from "../../Context/ProductsProvider";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchOneProductAsync } from "../../redux/oneProduct/oneProductActions";
+import { useEffect } from "react";
 
 const ProductDetails = () => {
+  const productData = useSelector((state) => state.product);
+  const dispatch = useDispatch();
+  const { loading, product, error } = productData;
   const { id } = useParams();
-  const product = initialState.products.find((product) => product.id === +id);
+  console.log(productData);
+
+  useEffect(() => {
+    dispatch(fetchOneProductAsync(id));
+  }, []);
 
   return (
     <div className={`${styles.product__details}`}>
@@ -59,7 +68,7 @@ const ProductDetails = () => {
           <span className={`${styles.product__banner}`}>sale</span>
           <span className={`${styles.product__id}`}>
             Product ID:
-            <span>{product.id}</span>
+            <span>{product._id}</span>
           </span>
         </div>
 

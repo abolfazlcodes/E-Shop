@@ -8,7 +8,7 @@ const Product = ({ product }) => {
   return (
     <NavLink
       className={`${styles.product}`}
-      to={`${pathname}/product/${product.id}`}
+      to={`${pathname}/product/${product._id}`}
     >
       <div className={`${styles.product__image}`}>
         <img
