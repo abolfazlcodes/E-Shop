@@ -1,15 +1,21 @@
 import styles from "./InputComponent.module.css";
 
-const InputComponent = ({ name, type = "text", errorMessage, placeholder }) => {
+const InputComponent = ({ name, type = "text", placeholder, formik }) => {
   return (
     <div className={`${styles.input__group}`}>
       <input
         name={name}
         type={type}
+        id={name}
+        {...formik.getFieldProps({ name })}
         className={`${styles.signup__form__input}`}
         placeholder={placeholder}
       />
-      <span className={`${styles.error__message}`}>Name is invalid</span>
+      {formik.touched[name] && formik.errors[name] && (
+        <span className={`${styles.error__message}`}>
+          {formik.errors[name]}
+        </span>
+      )}
     </div>
   );
 };
