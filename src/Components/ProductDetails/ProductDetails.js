@@ -6,9 +6,15 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOneProductAsync } from "../../redux/oneProduct/oneProductActions";
 import { useEffect } from "react";
+import {
+  decreaseProductQuantity,
+  increaseProductQuantity,
+} from "../../redux/productQuanity/productQuantityActions";
 
 const ProductDetails = () => {
   const productData = useSelector((state) => state.product);
+  const productQuantity = useSelector((state) => state.productQuantity);
+  console.log(productQuantity);
   const dispatch = useDispatch();
   const { loading, product, error } = productData;
   const { id } = useParams();
@@ -77,7 +83,8 @@ const ProductDetails = () => {
           <div className={`${styles.product__detail__price}`}>
             {product.offPrice && (
               <span className={`${styles.product__price__discount}`}>
-                {product.offPrice && product.offPrice}
+                {product.offPrice &&
+                  product.offPrice * productQuantity.productQuantity}
               </span>
             )}
             <span
@@ -85,7 +92,7 @@ const ProductDetails = () => {
                 product.offPrice && styles.product__price__off
               } `}
             >
-              ${product.price}
+              ${product.price * productQuantity.productQuantity}
             </span>
           </div>
         </div>
@@ -140,11 +147,13 @@ const ProductDetails = () => {
             </span>
             <div className={`${styles.product__quantity__btns}`}>
               <i>
-                <MdRemove />
+                <MdRemove onClick={() => dispatch(decreaseProductQuantity())} />
               </i>
-              <span className={`${styles.quantity}`}>1</span>
+              <span className={`${styles.quantity}`}>
+                {productQuantity.productQuantity}
+              </span>
               <i>
-                <MdAdd />
+                <MdAdd onClick={() => dispatch(increaseProductQuantity())} />
               </i>
             </div>
           </div>
