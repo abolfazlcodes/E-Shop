@@ -1,0 +1,60 @@
+.flags {
+  font-size: 1.7rem;
+}
+
+.product__color {
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.product__color__boxes {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.product__color__box {
+  padding: 0.5rem;
+  border: 1px solid #cecece;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.product__color__box:hover {
+  border: 1px solid #fbb03b;
+  box-shadow: 0 0 0.1rem 0.1rem #fbb03b;
+}
+
+.colorActive {
+  border: 1px solid #fbb03b;
+  box-shadow: 0 0 0.1rem 0.1rem #fbb03b;
+}
+
+.product__color__box .color {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #cecece;
+}
+
+.color__one {
+  background-color: #000;
+}
+
+.color__two {
+  background-color: #2900ff;
+}
+
+.color__three {
+  background-color: #fff;
+}
+
+.color__four {
+  background-color: #ffe3b7;
+}
+
+@media screen and (max-width: 1050px) {
+  .product__color__box .color {
+    width: 2rem;
+    height: 2rem;
+  }
+}

@@ -1,0 +1,40 @@
+.product__delivery__type {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  width: 45%;
+}
+
+.product__delivery__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product__delivery__heading,
+.product__delivery__subheading {
+  font-size: 1.7rem;
+}
+
+.delivery__icon {
+  font-size: 2.3rem;
+}
+
+@media screen and (max-width: 1050px) {
+  .product__delivery__type {
+    width: 50%;
+  }
+
+  .product__delivery__details {
+    width: 90%;
+  }
+
+  .product__delivery__heading,
+  .product__delivery__subheading {
+    font-size: 1.3rem;
+  }
+
+  .delivery__icon {
+    font-size: 1.4rem;
+  }
+}

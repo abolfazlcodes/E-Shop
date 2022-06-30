@@ -1,23 +1,18 @@
 import styles from "./ProductDetails.module.css";
+import Shipping from "./Shipping/Shipping";
+import ProductFlags from "./ProductFlags/ProductFlags";
+import ProductSize from "./ProductSize/ProductSize";
+import ProductColor from "./ProductColor/ProductColor";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import { FaTruck } from "react-icons/fa";
-import { MdRemove, MdAdd } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOneProductAsync } from "../../redux/oneProduct/oneProductActions";
-import { useEffect } from "react";
-import {
-  decreaseProductQuantity,
-  increaseProductQuantity,
-} from "../../redux/productQuanity/productQuantityActions";
-import { chooseProductColor } from "../../redux/productColor/productColorActions";
-import { chooseProductSize } from "../../redux/productSize/productSizeActions";
+import { useEffect, useState } from "react";
+import { addToCart } from "../../redux/shoppingCart/shoppingCartActions";
+import ProductNumber from "./ProductNumber/ProductNumber";
 
 const ProductDetails = () => {
   const productData = useSelector((state) => state.product);
-  const productQuantity = useSelector((state) => state.productQuantity);
-  const productColor = useSelector((state) => state.productColor);
-  const productSize = useSelector((state) => state.productSize);
   const dispatch = useDispatch();
   const { loading, product, error } = productData;
   const { id } = useParams();
@@ -40,53 +35,19 @@ const ProductDetails = () => {
       </div>
       <div className={`${styles.product__detail}`}>
         <div className={`${styles.product__delivery}`}>
-          <div
-            className={`${styles.product__delivery__type} ${styles.product__delivery__shipment}`}
-          >
-            <div className={`${styles.product__delivery__icon}`}>
-              <FaTruck className={`${styles.delivery__icon}`} />
-            </div>
-            <div className={`${styles.product__delivery__details}`}>
-              <span className={`${styles.product__delivery__heading}`}>
-                Standard shipment
-              </span>
-              <span className={`${styles.product__delivery__subheading}`}>
-                Free within 3-6 business days
-              </span>
-            </div>
-          </div>
-          <div
-            className={`${styles.product__delivery__type} ${styles.product__delivery__express}`}
-          >
-            <div className={`${styles.product__delivery__icon}`}>
-              <FaTruck className={`${styles.delivery__icon}`} />
-            </div>
-            <div className={`${styles.product__delivery__details}`}>
-              <span className={`${styles.product__delivery__heading}`}>
-                Express delivery
-              </span>
-              <span className={`${styles.product__delivery__subheading}`}>
-                $35,00 available
-              </span>
-            </div>
-          </div>
+          <Shipping
+            type="Standard shipment"
+            description="Free within 3-6 business days"
+          />
+          <Shipping type="Express delivery" description="$35,00 available" />
         </div>
-
-        <div className={`${styles.product__flags}`}>
-          <span className={`${styles.product__banner}`}>sale</span>
-          <span className={`${styles.product__id}`}>
-            Product ID:
-            <span>{product._id}</span>
-          </span>
-        </div>
-
+        <ProductFlags productID={product._id} />
         <div className={`${styles.product__detail__name}`}>
           <h1 className={`${styles.product__name}`}>{product.name}</h1>
           <div className={`${styles.product__detail__price}`}>
             {product.offPrice && (
               <span className={`${styles.product__price__discount}`}>
-                {product.offPrice &&
-                  product.offPrice * productQuantity.productQuantity}
+                {product.offPrice && product.offPrice}
               </span>
             )}
             <span
@@ -94,95 +55,26 @@ const ProductDetails = () => {
                 product.offPrice && styles.product__price__off
               } `}
             >
-              ${product.price * productQuantity.productQuantity}
+              ${product.price}
             </span>
           </div>
         </div>
 
-        <div className={`${styles.product__color}`}>
-          <span className={`${styles.product__color__flag} ${styles.flags}`}>
-            Color:
-          </span>
-
-          <div className={`${styles.product__color__boxes}`}>
-            <div
-              onClick={() => dispatch(chooseProductColor("black"))}
-              className={`${styles.product__color__box} ${
-                productColor.color === "black" && styles.colorActive
-              } `}
-            >
-              <div className={`${styles.color} ${styles.color__one}`}></div>
-            </div>
-            <div
-              onClick={() => dispatch(chooseProductColor("blue"))}
-              className={`${styles.product__color__box} ${
-                productColor.color === "blue" && styles.colorActive
-              }`}
-            >
-              <div className={`${styles.color} ${styles.color__two}`}></div>
-            </div>
-            <div
-              onClick={() => dispatch(chooseProductColor("white"))}
-              className={`${styles.product__color__box} ${
-                productColor.color === "white" && styles.colorActive
-              }`}
-            >
-              <div className={`${styles.color} ${styles.color__three}`}></div>
-            </div>
-            <div
-              onClick={() => dispatch(chooseProductColor("brown"))}
-              className={`${styles.product__color__box} ${
-                productColor.color === "brown" && styles.colorActive
-              }`}
-            >
-              <div className={`${styles.color} ${styles.color__four}`}></div>
-            </div>
-          </div>
-        </div>
-
-        <div className={`${styles.product__size}`}>
-          <span className={`${styles.product__size__flag} ${styles.flags}`}>
-            Size:
-          </span>
-
-          <div className={`${styles.product__size__selectBox}`}>
-            <select
-              name="size"
-              id={`${styles.size}`}
-              onChange={(e) => dispatch(chooseProductSize(e.target.value))}
-            >
-              <option value="">Choose size</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
-            </select>
-          </div>
-        </div>
-
+        <ProductColor />
+        <ProductSize />
         <div className={`${styles.product__action__btns}`}>
-          <div className={`${styles.product__quantity}`}>
-            <span
-              className={`${styles.product__quantity__flag} ${styles.flags}`}
-            >
-              Quantity:
-            </span>
-            <div className={`${styles.product__quantity__btns}`}>
-              <i>
-                <MdRemove onClick={() => dispatch(decreaseProductQuantity())} />
-              </i>
-              <span className={`${styles.quantity}`}>
-                {productQuantity.productQuantity}
-              </span>
-              <i>
-                <MdAdd onClick={() => dispatch(increaseProductQuantity())} />
-              </i>
-            </div>
-          </div>
-
-          <div className={`${styles.product__btn}`}>
-            <span className={`${styles.addToCart__btn}`}>add to cart</span>
+          <ProductNumber />
+          <div
+            className={`${styles.product__btn}`}
+            onClick={() =>
+              dispatch(
+                addToCart({
+                  ...product,
+                })
+              )
+            }
+          >
+            <span className={`${styles.addToCart__btn}`}>Add to cart</span>
           </div>
         </div>
       </div>

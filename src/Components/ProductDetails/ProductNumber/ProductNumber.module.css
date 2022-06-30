@@ -1,0 +1,46 @@
+.flags {
+  font-size: 1.7rem;
+}
+
+.product__quantity {
+  width: 10rem;
+}
+
+.quantity {
+  font-size: 1.6rem;
+}
+
+.product__quantity__btns {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #cecece;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.product__quantity__btns i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1050px) {
+  .product__quantity {
+    width: 10rem;
+  }
+
+  .product__quantity__btns {
+    padding: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .flags {
+    font-size: 1.4rem;
+  }
+
+  .product__quantity__btns {
+    padding: 0.6rem;
+  }
+}

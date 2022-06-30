@@ -4,6 +4,7 @@ import productColorReducer from "./productColor/productColorReducer";
 import productQuantityReducer from "./productQuanity/productQuantityReducer";
 import productsReducer from "./products/productsReducer";
 import productSizeReducer from "./productSize/productSizeReducer";
+import shoppingCartReducer from "./shoppingCart/shoppingCartReducer";
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   productQuantity: productQuantityReducer,
   productColor: productColorReducer,
   productSize: productSizeReducer,
+  cart: shoppingCartReducer,
 });
 
 export default rootReducer;
