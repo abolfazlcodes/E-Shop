@@ -10,15 +10,17 @@ import {
   decreaseProductQuantity,
   increaseProductQuantity,
 } from "../../redux/productQuanity/productQuantityActions";
+import { chooseProductColor } from "../../redux/productColor/productColorActions";
+import { chooseProductSize } from "../../redux/productSize/productSizeActions";
 
 const ProductDetails = () => {
   const productData = useSelector((state) => state.product);
   const productQuantity = useSelector((state) => state.productQuantity);
-  console.log(productQuantity);
+  const productColor = useSelector((state) => state.productColor);
+  const productSize = useSelector((state) => state.productSize);
   const dispatch = useDispatch();
   const { loading, product, error } = productData;
   const { id } = useParams();
-  console.log(productData);
 
   useEffect(() => {
     dispatch(fetchOneProductAsync(id));
@@ -104,18 +106,35 @@ const ProductDetails = () => {
 
           <div className={`${styles.product__color__boxes}`}>
             <div
-              className={`${styles.product__color__box} ${styles.colorActive}`}
-              data-value="black"
+              onClick={() => dispatch(chooseProductColor("black"))}
+              className={`${styles.product__color__box} ${
+                productColor.color === "black" && styles.colorActive
+              } `}
             >
               <div className={`${styles.color} ${styles.color__one}`}></div>
             </div>
-            <div className={`${styles.product__color__box}`} data-value="blue">
+            <div
+              onClick={() => dispatch(chooseProductColor("blue"))}
+              className={`${styles.product__color__box} ${
+                productColor.color === "blue" && styles.colorActive
+              }`}
+            >
               <div className={`${styles.color} ${styles.color__two}`}></div>
             </div>
-            <div className={`${styles.product__color__box}`} data-value="white">
+            <div
+              onClick={() => dispatch(chooseProductColor("white"))}
+              className={`${styles.product__color__box} ${
+                productColor.color === "white" && styles.colorActive
+              }`}
+            >
               <div className={`${styles.color} ${styles.color__three}`}></div>
             </div>
-            <div className={`${styles.product__color__box}`} data-value="brown">
+            <div
+              onClick={() => dispatch(chooseProductColor("brown"))}
+              className={`${styles.product__color__box} ${
+                productColor.color === "brown" && styles.colorActive
+              }`}
+            >
               <div className={`${styles.color} ${styles.color__four}`}></div>
             </div>
           </div>
@@ -127,7 +146,11 @@ const ProductDetails = () => {
           </span>
 
           <div className={`${styles.product__size__selectBox}`}>
-            <select name="size" id={`${styles.size}`}>
+            <select
+              name="size"
+              id={`${styles.size}`}
+              onChange={(e) => dispatch(chooseProductSize(e.target.value))}
+            >
               <option value="">Choose size</option>
               <option value="S">S</option>
               <option value="M">M</option>
