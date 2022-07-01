@@ -1,4 +1,5 @@
 import styles from "./Navbar.module.css";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
 import {
   MdShoppingCart,
@@ -26,9 +27,24 @@ const Navbar = () => {
           hideMenu ? styles.active : styles.nav__items
         }`}
       >
-        <li className={`${styles.nav__item}`}>men</li>
-        <li className={`${styles.nav__item}`}>women</li>
-        <li className={`${styles.nav__item}`}>kids</li>
+        <NavLink
+          className={`${styles.nav__item}`}
+          to={{ pathname: "/products", search: "categories=men" }}
+        >
+          Men
+        </NavLink>
+        <NavLink
+          className={`${styles.nav__item}`}
+          to={{ pathname: "/products", search: "categories=women" }}
+        >
+          Women
+        </NavLink>
+        <NavLink
+          className={`${styles.nav__item}`}
+          to={{ pathname: "/products", search: "categories=shoes" }}
+        >
+          Shoes
+        </NavLink>
       </ul>
 
       <div className={`${styles.action__btns}`}>
