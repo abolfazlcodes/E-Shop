@@ -1,11 +1,6 @@
 import styles from "./ProductSize.module.css";
-import { chooseProductSize } from "../../../redux/productSize/productSizeActions";
-import { useSelector, useDispatch } from "react-redux";
 
-const ProductSize = () => {
-  const productSize = useSelector((state) => state.productSize);
-  const dispatch = useDispatch();
-
+const ProductSize = ({ chooseProductSizeHandler }) => {
   return (
     <div className={`${styles.product__size}`}>
       <span className={`${styles.product__size__flag} ${styles.flags}`}>
@@ -16,7 +11,7 @@ const ProductSize = () => {
         <select
           name="size"
           id={`${styles.size}`}
-          onChange={(e) => dispatch(chooseProductSize(e.target.value))}
+          onChange={chooseProductSizeHandler}
         >
           <option value="">Choose size</option>
           <option value="S">S</option>

@@ -1,15 +1,7 @@
 import styles from "./ProductNumber.module.css";
 import { MdRemove, MdAdd } from "react-icons/md";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  decreaseProductQuantity,
-  increaseProductQuantity,
-} from "../../../redux/productQuanity/productQuantityActions";
 
-const ProductNumber = () => {
-  const productQuantity = useSelector((state) => state.productQuantity);
-  const dispatch = useDispatch();
-
+const ProductNumber = ({ productNumber, onIncrement, onDecrement }) => {
   return (
     <div className={`${styles.product__quantity}`}>
       <span className={`${styles.product__quantity__flag} ${styles.flags}`}>
@@ -17,13 +9,11 @@ const ProductNumber = () => {
       </span>
       <div className={`${styles.product__quantity__btns}`}>
         <i>
-          <MdRemove onClick={() => dispatch(decreaseProductQuantity())} />
+          <MdRemove onClick={onDecrement} />
         </i>
-        <span className={`${styles.quantity}`}>
-          {productQuantity.productQuantity}
-        </span>
+        <span className={`${styles.quantity}`}>{productNumber}</span>
         <i>
-          <MdAdd onClick={() => dispatch(increaseProductQuantity())} />
+          <MdAdd onClick={onIncrement} />
         </i>
       </div>
     </div>

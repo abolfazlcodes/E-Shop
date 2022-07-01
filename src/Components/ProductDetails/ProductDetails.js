@@ -16,6 +16,27 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const { loading, product, error } = productData;
   const { id } = useParams();
+  const [productNumber, setProductNumber] = useState(1);
+  const [productSize, setProductSize] = useState("");
+  const [productColor, setProductColor] = useState("");
+
+  const chooseProductColorHandler = (color) => {
+    setProductColor(color);
+  };
+
+  const chooseProductSizeHandler = (e) => {
+    setProductSize(e.target.value);
+  };
+
+  const productNumberIncrementHandler = () => {
+    setProductNumber((prevState) => prevState + 1);
+  };
+
+  const productNumberDecrementHandler = () => {
+    if (productNumber === 1) return;
+
+    setProductNumber((prevState) => prevState - 1);
+  };
 
   useEffect(() => {
     dispatch(fetchOneProductAsync(id));
@@ -47,7 +68,7 @@ const ProductDetails = () => {
           <div className={`${styles.product__detail__price}`}>
             {product.offPrice && (
               <span className={`${styles.product__price__discount}`}>
-                {product.offPrice && product.offPrice}
+                {product.offPrice && product.offPrice * productNumber}
               </span>
             )}
             <span
@@ -55,21 +76,31 @@ const ProductDetails = () => {
                 product.offPrice && styles.product__price__off
               } `}
             >
-              ${product.price}
+              ${product.price * productNumber}
             </span>
           </div>
         </div>
 
-        <ProductColor />
-        <ProductSize />
+        <ProductColor
+          productColor={productColor}
+          onChangeColor={chooseProductColorHandler}
+        />
+        <ProductSize chooseProductSizeHandler={chooseProductSizeHandler} />
         <div className={`${styles.product__action__btns}`}>
-          <ProductNumber />
+          <ProductNumber
+            productNumber={productNumber}
+            onIncrement={productNumberIncrementHandler}
+            onDecrement={productNumberDecrementHandler}
+          />
           <div
             className={`${styles.product__btn}`}
             onClick={() =>
               dispatch(
                 addToCart({
                   ...product,
+                  productColor,
+                  productNumber,
+                  productSize,
                 })
               )
             }
