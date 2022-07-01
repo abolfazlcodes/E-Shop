@@ -15,8 +15,8 @@ const shoppingCartReducer = (state = initialState, action) => {
         updatedCart.push({ ...action.payload });
       } else {
         const cartItem = { ...updatedCart[cartItemIndex] };
-        cartItem.productQuantity++;
-        cartItem.price = cartItem.price * cartItem.productQuantity;
+        cartItem.productNumber++;
+        cartItem.price = cartItem.price * cartItem.productNumber;
         updatedCart[cartItemIndex] = cartItem;
       }
 
