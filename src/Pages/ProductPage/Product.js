@@ -6,7 +6,6 @@ const ProductDetailsPage = () => {
   return (
     <Layout>
       <ProductDetails />
-      <Newsletter />
     </Layout>
   );
 };

@@ -1,0 +1,21 @@
+.flags {
+  font-size: 1.7rem;
+}
+
+.product__size {
+  padding: 1rem;
+}
+
+#size {
+  width: 20rem;
+  border-radius: 5rem;
+  padding: 1rem;
+  border: 1px solid #cecece;
+}
+
+@media screen and (max-width: 1050px) {
+  #size {
+    padding: 0.7rem;
+    margin-top: 1rem;
+  }
+}
