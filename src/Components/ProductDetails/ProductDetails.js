@@ -10,15 +10,17 @@ import { fetchOneProductAsync } from "../../redux/oneProduct/oneProductActions";
 import { useEffect, useState } from "react";
 import { addToCart } from "../../redux/shoppingCart/shoppingCartActions";
 import ProductNumber from "./ProductNumber/ProductNumber";
+import { IconContext } from "react-icons/lib";
 
 const ProductDetails = () => {
   const productData = useSelector((state) => state.product);
   const dispatch = useDispatch();
-  const { loading, product, error } = productData;
-  const { id } = useParams();
   const [productNumber, setProductNumber] = useState(1);
   const [productSize, setProductSize] = useState("");
   const [productColor, setProductColor] = useState("");
+  const [favourite, setFavourite] = useState(false);
+  const { loading, product, error } = productData;
+  const { id } = useParams();
 
   const chooseProductColorHandler = (color) => {
     setProductColor(color);
@@ -42,6 +44,10 @@ const ProductDetails = () => {
     dispatch(fetchOneProductAsync(id));
   }, []);
 
+  const toggleFavouriteHandler = () => {
+    setFavourite(!favourite);
+  };
+
   return (
     <div className={`${styles.product__details}`}>
       <div className={`${styles.product__image}`}>
@@ -50,8 +56,17 @@ const ProductDetails = () => {
           alt={product.name}
           className={`${styles.product__img}`}
         />
-        <div className={`${styles.like__icon} ${styles.liked}`}>
-          <MdFavoriteBorder />
+        <div
+          className={`${styles.like__icon}`}
+          onClick={toggleFavouriteHandler}
+        >
+          {favourite ? (
+            <IconContext.Provider value={{ color: "#fbb03b" }}>
+              <MdFavorite />
+            </IconContext.Provider>
+          ) : (
+            <MdFavoriteBorder />
+          )}
         </div>
       </div>
       <div className={`${styles.product__detail}`}>
