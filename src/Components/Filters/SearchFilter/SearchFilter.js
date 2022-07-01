@@ -1,6 +1,6 @@
 import styles from "./SearchFilter.module.css";
 
-const SearchFilter = () => {
+const SearchFilter = ({ query, searchQueryChangeHander }) => {
   return (
     <div className={`${styles.filter__box} ${styles.search__filter}`}>
       <header className={`${styles.filter__box__header}`}>
@@ -13,6 +13,8 @@ const SearchFilter = () => {
           id="search"
           className={`${styles.signup__form__input}`}
           placeholder="Search product"
+          value={query}
+          onChange={searchQueryChangeHander}
         />
       </div>
     </div>

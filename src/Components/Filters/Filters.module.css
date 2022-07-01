@@ -17,6 +17,16 @@
   gap: 1rem;
 }
 
+.submitFilter__btn {
+  background-color: var(--accent-color-2);
+  color: var(--primary-color-2);
+  font-size: 1.4rem;
+  padding: 1rem;
+  border-radius: 8rem;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 705px) {
   .filters {
     align-items: center;

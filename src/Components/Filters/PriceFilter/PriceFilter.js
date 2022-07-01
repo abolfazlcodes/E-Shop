@@ -1,18 +1,6 @@
-import { useState } from "react";
 import styles from "./PriceFilter.module.css";
 
-const PriceFilter = () => {
-  const [price, setPrice] = useState({
-    minimumPrice: 0,
-    maximumPrice: 50,
-  });
-
-  const priceChangeHandler = (e) => {
-    const priceData = { [e.target.name]: e.target.value };
-    console.log(priceData);
-    setPrice({ ...price, ...priceData });
-  };
-
+const PriceFilter = ({ price, priceChangeHandler }) => {
   return (
     <div className={`${styles.filter__box} `}>
       <header className={`${styles.filter__box__header}`}>
