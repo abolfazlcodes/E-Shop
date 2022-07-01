@@ -3,22 +3,31 @@ import Shipping from "./Shipping/Shipping";
 import ProductFlags from "./ProductFlags/ProductFlags";
 import ProductSize from "./ProductSize/ProductSize";
 import ProductColor from "./ProductColor/ProductColor";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOneProductAsync } from "../../redux/oneProduct/oneProductActions";
 import { useEffect, useState } from "react";
 import { addToCart } from "../../redux/shoppingCart/shoppingCartActions";
 import ProductNumber from "./ProductNumber/ProductNumber";
+import {
+  addToFavourites,
+  deleteFromFavourites,
+} from "../../redux/favouriteProducts/favouriteProductsActions";
+import {
+  checkIfInfavouries,
+  renderLikeIcon,
+} from "../../utils/checkIfProductIsInFavorites";
 
 const ProductDetails = () => {
   const productData = useSelector((state) => state.product);
+  const favouriteProducts = useSelector((state) => state.favourites);
   const dispatch = useDispatch();
-  const { loading, product, error } = productData;
-  const { id } = useParams();
   const [productNumber, setProductNumber] = useState(1);
   const [productSize, setProductSize] = useState("");
   const [productColor, setProductColor] = useState("");
+  const [favourite, setFavourite] = useState(false);
+  const { loading, product, error } = productData;
+  const { id } = useParams();
 
   const chooseProductColorHandler = (color) => {
     setProductColor(color);
@@ -40,7 +49,18 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(fetchOneProductAsync(id));
-  }, []);
+  }, [favourite]);
+
+  const toggleFavouriteHandler = () => {
+    setFavourite(!favourite);
+    if (!favourite) {
+      dispatch(addToFavourites(product));
+      setFavourite(!favourite);
+    } else {
+      dispatch(deleteFromFavourites(product));
+      setFavourite(!favourite);
+    }
+  };
 
   return (
     <div className={`${styles.product__details}`}>
@@ -50,8 +70,11 @@ const ProductDetails = () => {
           alt={product.name}
           className={`${styles.product__img}`}
         />
-        <div className={`${styles.like__icon} ${styles.liked}`}>
-          <MdFavoriteBorder />
+        <div
+          className={`${styles.like__icon}`}
+          onClick={toggleFavouriteHandler}
+        >
+          {renderLikeIcon(checkIfInfavouries(product._id, favouriteProducts))}
         </div>
       </div>
       <div className={`${styles.product__detail}`}>

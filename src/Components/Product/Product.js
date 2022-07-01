@@ -1,9 +1,17 @@
 import styles from "./Product.module.css";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { NavLink, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  checkIfInfavouries,
+  renderLikeIcon,
+} from "../../utils/checkIfProductIsInFavorites";
+import { useEffect } from "react";
 
 const Product = ({ product }) => {
   const { pathname } = useLocation();
+  const favouriteProducts = useSelector((state) => state.favourites);
+
+  useEffect(() => {}, [favouriteProducts]);
 
   return (
     <NavLink
@@ -23,7 +31,7 @@ const Product = ({ product }) => {
       </div>
 
       <div className={`${styles.like__icon} ${styles.liked}}`}>
-        <MdFavoriteBorder className={`${styles.icon}`} />
+        {renderLikeIcon(checkIfInfavouries(product._id, favouriteProducts))}
       </div>
     </NavLink>
   );
