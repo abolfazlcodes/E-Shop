@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: space-between;
   width: 12rem;
+  color: var(--primary-color);
 }
 
 .logo__name {
@@ -79,10 +80,6 @@
 
 .btns {
   cursor: pointer;
-}
-
-.user__icon {
-  display: none;
 }
 
 @media screen and (min-width: 975px) {

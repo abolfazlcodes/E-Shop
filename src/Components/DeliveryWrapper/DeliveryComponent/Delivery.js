@@ -1,8 +1,20 @@
 import styles from "./Delivery.module.css";
 
-const Delivery = ({ deliveryLogo, deliveryPrice, deliveryDescription }) => {
+const Delivery = ({
+  deliveryLogo,
+  deliveryPrice,
+  deliveryDescription,
+  deliveryType,
+  changeDeliveryTypeHandler,
+  deliveryTypeName,
+}) => {
   return (
-    <article className={`${styles.delivery__method} ${styles.active}`}>
+    <article
+      className={`${styles.delivery__method} ${
+        deliveryTypeName === deliveryType && styles.active
+      }`}
+      onClick={() => changeDeliveryTypeHandler(deliveryType)}
+    >
       <div className={`${styles.delivery__method__company}`}>
         <img
           src={deliveryLogo}
@@ -16,6 +28,9 @@ const Delivery = ({ deliveryLogo, deliveryPrice, deliveryDescription }) => {
         </span>
         <span className={`${styles.delivery__method__des}`}>
           {deliveryDescription}
+        </span>
+        <span className={`${styles.delivery__method__des}`}>
+          {deliveryType}
         </span>
       </div>
     </article>

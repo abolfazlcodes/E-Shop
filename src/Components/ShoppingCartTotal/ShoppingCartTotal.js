@@ -26,7 +26,7 @@ const ShoppingCartTotal = () => {
         <div className={`${styles.product_btn}`}>
           <NavLink
             className={`${styles.btn} ${styles.product__btn__nextStep}`}
-            to="/nextStep"
+            to="/login?redirect=checkout"
           >
             Next step
           </NavLink>

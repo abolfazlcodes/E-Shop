@@ -8,9 +8,11 @@ import {
 } from "react-icons/md";
 import { useState } from "react";
 import { IconContext } from "react-icons/lib";
+import { useAuth } from "../../Context/useAuthContext/AuthProvider";
 
 const Navbar = () => {
   const [hideMenu, setHideMenue] = useState(false);
+  const userData = useAuth();
 
   const showMenuHandler = () => {
     setHideMenue(!hideMenu);
@@ -18,9 +20,15 @@ const Navbar = () => {
 
   return (
     <nav className={`${styles.navbar}`}>
-      <div className={`${styles.logo__wrapper}`}>
-        <img src={logo} alt="Logo Image" className={`${styles.logo__image}`} />
-        <span className={`${styles.logo__name}`}>E-Shop</span>
+      <div>
+        <NavLink className={`${styles.logo__wrapper}`} to="/">
+          <img
+            src={logo}
+            alt="Logo Image"
+            className={`${styles.logo__image}`}
+          />
+          <span className={`${styles.logo__name}`}>E-Shop</span>
+        </NavLink>
       </div>
 
       <ul
@@ -28,6 +36,12 @@ const Navbar = () => {
           hideMenu ? styles.active : styles.nav__items
         }`}
       >
+        <NavLink
+          className={`${styles.nav__item}`}
+          to={{ pathname: "/products", search: "categories=all" }}
+        >
+          All
+        </NavLink>
         <NavLink
           className={`${styles.nav__item}`}
           to={{ pathname: "/products", search: "categories=men" }}
@@ -58,9 +72,17 @@ const Navbar = () => {
         </span>
         <span className={`${styles.btns} ${styles.menu__btn}`}>
           <IconContext.Provider value={{ color: "#161513" }}>
-            <MdOutlinePersonOutline
-              className={`${styles.icons} ${styles.user__icon}`}
-            />
+            {userData ? (
+              <span className={`${styles.userName}`}>
+                {userData.name.split(" ")[0]}
+              </span>
+            ) : (
+              <NavLink to="/login">
+                <MdOutlinePersonOutline
+                  className={`${styles.icons} ${styles.user__icon}`}
+                />
+              </NavLink>
+            )}
             <MdOutlineMenu
               className={`${styles.icons} ${styles.menu__icon}`}
               onClick={showMenuHandler}

@@ -6,22 +6,24 @@ import PasswordInputComponent from "../PasswordInput/PasswordInputComponent";
 import InputCheckboxComponent from "../InputCheckboxComponent/InputCheckboxComponent";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { signupUser } from "../../Services/signupService";
+import { useEffect, useState } from "react";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { useNavigate } from "react-router-dom";
+import {
+  useAuth,
+  useAuthActions,
+} from "../../Context/useAuthContext/AuthProvider";
+import { useQuery } from "../../Hooks/useQuery";
 
 const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
+  phoneNumber: "",
   password: "",
   passwordConfirm: "",
   terms: false,
-};
-
-const onSubmit = (values) => {
-  console.log(values);
-  // axios
-  //   .post(`http://localhost:3001/users`, values)
-  //   .then((res) => notify.show("Toasty!"))
-  //   .catch((err) => console.log(err));
 };
 
 const validationSchema = yup.object({
@@ -37,7 +39,7 @@ const validationSchema = yup.object({
     .string()
     .email("Invalid email format")
     .required("Email is required"),
-  phone: yup
+  phoneNumber: yup
     .string()
     .required("Phone number is required")
     .matches(/^[0-9]{11}$/, "Invalid phone number")
@@ -57,6 +59,43 @@ const validationSchema = yup.object({
 });
 
 const SignupForm = () => {
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const setAuth = useAuthActions();
+  const query = useQuery();
+  const redirect = query.get("redirect") || "/";
+  const isAuth = useAuth();
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate(`/${redirect}`);
+    }
+  }, [isAuth, redirect]);
+
+  const onSubmit = async (values) => {
+    const { firstName, lastName, email, password, phoneNumber } = values;
+
+    // form values that need to be sent to database
+    const userData = {
+      name: `${firstName} ${lastName}`,
+      email,
+      password,
+      phoneNumber,
+    };
+
+    try {
+      const { data } = await signupUser(userData);
+      setAuth(data);
+      localStorage.setItem("authState", JSON.stringify(data));
+      setError(null);
+      navigate(`/${redirect}`);
+    } catch (error) {
+      if (error.response) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit,
@@ -89,6 +128,12 @@ const SignupForm = () => {
             type="email"
             placeholder="Email"
           />
+          <InputComponent
+            formik={formik}
+            name="phoneNumber"
+            type="tel"
+            placeholder="09150000000"
+          />
           <PasswordInputComponent
             formik={formik}
             name="password"
@@ -102,12 +147,14 @@ const SignupForm = () => {
           <InputCheckboxComponent formik={formik} name="terms" />
           <SignupFormButtons
             buttonText="Sign up"
-            linkTo="/login"
+            linkTo={`/login?redirect=${redirect}`}
             switchFormButtonText="Already have an account? Login"
             formik={formik}
           />
         </form>
       </div>
+
+      {error && <ErrorMessage error={error} />}
     </div>
   );
 };
