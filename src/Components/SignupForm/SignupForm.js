@@ -10,6 +10,8 @@ import { signupUser } from "../../Services/signupService";
 import { useState } from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useNavigate } from "react-router-dom";
+import { saveUserData } from "../../redux/userAuth/userAuthActions";
+import { useDispatch } from "react-redux";
 
 const initialValues = {
   firstName: "",
@@ -56,6 +58,7 @@ const validationSchema = yup.object({
 const SignupForm = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async (values) => {
     const { firstName, lastName, email, password, phoneNumber } = values;
@@ -69,7 +72,9 @@ const SignupForm = () => {
     };
 
     try {
-      await signupUser(userData);
+      const { data } = await signupUser(userData);
+      dispatch(saveUserData(data));
+      localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
       navigate("/products");
     } catch (error) {
