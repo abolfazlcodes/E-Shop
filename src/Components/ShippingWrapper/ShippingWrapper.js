@@ -3,6 +3,7 @@ import InputComponent from "../InputComponent/InputComponent";
 import CountriesSelectBox from "../CountriesSelectBox/CountriesSelectBox";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { useEffect } from "react";
 
 const initialValues = {
   firstName: "",
@@ -12,14 +13,6 @@ const initialValues = {
   phone: "",
   ZIP: "",
   address: "",
-};
-
-const onSubmit = (values) => {
-  console.log(values);
-  // axios
-  //   .post(`http://localhost:3001/users`, values)
-  //   .then((res) => notify.show("Toasty!"))
-  //   .catch((err) => console.log(err));
 };
 
 const validationSchema = yup.object({
@@ -47,23 +40,22 @@ const validationSchema = yup.object({
   }),
 });
 
-const ShippingWrapper = () => {
+const ShippingWrapper = ({ submitHandler }) => {
   const formik = useFormik({
     initialValues: initialValues,
-    onSubmit,
     validationSchema,
     validateOnMount: true,
     enableReinitialize: true,
   });
 
-  console.log(formik.values);
+  const values = formik.values;
+  useEffect(() => {
+    submitHandler(values);
+  }, [values]);
 
   return (
     <div className={`${styles.shipping}`}>
-      <form
-        className={`${styles.shipping__form}`}
-        onSubmit={formik.handleSubmit}
-      >
+      <form className={`${styles.shipping__form}`}>
         <InputComponent
           formik={formik}
           name="firstName"

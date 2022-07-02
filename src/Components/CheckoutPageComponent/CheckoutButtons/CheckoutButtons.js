@@ -1,7 +1,7 @@
 import styles from "./CheckoutButtons.module.css";
 import { NavLink } from "react-router-dom";
 
-const CheckoutButtons = () => {
+const CheckoutButtons = ({ finishCheckoutHandler }) => {
   return (
     <div className={`${styles.shopping__cart__total}`}>
       <div className={`${styles.product_btn}`}>
@@ -12,12 +12,12 @@ const CheckoutButtons = () => {
           Continue shopping
         </NavLink>
       </div>
-      <div className={`${styles.product_btn}`}>
+      <div className={`${styles.product_btn}`} onClick={finishCheckoutHandler}>
         <NavLink
           className={`${styles.btn} ${styles.product__btn__nextStep}`}
-          to="/next"
+          to="/"
         >
-          Next step
+          Finsih Checkout
         </NavLink>
       </div>
     </div>
