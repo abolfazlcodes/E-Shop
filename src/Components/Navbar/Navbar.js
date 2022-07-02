@@ -8,12 +8,11 @@ import {
 } from "react-icons/md";
 import { useState } from "react";
 import { IconContext } from "react-icons/lib";
-import { useSelector } from "react-redux";
+import { useAuth } from "../../Context/useAuthContext/AuthProvider";
 
 const Navbar = () => {
   const [hideMenu, setHideMenue] = useState(false);
-  const { isAuthTrue, data } = useSelector((state) => state.userAuth);
-  console.log(data);
+  const userData = useAuth();
 
   const showMenuHandler = () => {
     setHideMenue(!hideMenu);
@@ -73,8 +72,8 @@ const Navbar = () => {
         </span>
         <span className={`${styles.btns} ${styles.menu__btn}`}>
           <IconContext.Provider value={{ color: "#161513" }}>
-            {isAuthTrue ? (
-              <span>{data.name}</span>
+            {userData ? (
+              <span className={`${styles.userName}`}>{userData.name}</span>
             ) : (
               <NavLink to="/login">
                 <MdOutlinePersonOutline

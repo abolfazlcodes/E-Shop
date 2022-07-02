@@ -10,8 +10,7 @@ import { useState } from "react";
 import { loginUser } from "../../Services/loginService";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { saveUserData } from "../../redux/userAuth/userAuthActions";
+import { useAuthActions } from "../../Context/useAuthContext/AuthProvider";
 
 const initialValues = {
   email: "",
@@ -29,12 +28,12 @@ const validationSchema = yup.object({
 const LoginForm = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  const dispatch = useDispatch();
+  const setAuth = useAuthActions();
 
   const onSubmit = async (values) => {
     try {
       const { data } = await loginUser(values);
-      dispatch(saveUserData(data));
+      setAuth(data);
       localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
       navigate("/products");
