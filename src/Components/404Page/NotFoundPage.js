@@ -1,5 +1,5 @@
 import styles from "./NotFoundPage.module.css";
-import ghost from "../../assets/ghost-img.png";
+import ghost from "../../assets/ghost.png";
 import { NavLink } from "react-router-dom";
 
 const NotFoundPage = () => {
