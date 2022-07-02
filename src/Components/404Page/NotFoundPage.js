@@ -19,7 +19,7 @@ const NotFoundPage = () => {
         </div>
 
         <div className={`${styles.home__img}`}>
-          <img src={ghost} alt="ghost image" />
+          <img src={ghost} alt="ghost" />
           <div className={`${styles.home__shadow}`}></div>
         </div>
       </div>
