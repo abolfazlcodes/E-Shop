@@ -8,13 +8,13 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useState, useEffect } from "react";
 import { loginUser } from "../../Services/loginService";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 import {
   useAuth,
   useAuthActions,
 } from "../../Context/useAuthContext/AuthProvider";
 import { useQuery } from "../../Hooks/useQuery";
+import { toast } from "react-toastify";
 
 const initialValues = {
   email: "",
@@ -35,7 +35,7 @@ const LoginForm = () => {
   const redirect = query.get("redirect") || "/"; //default redirect in case there was not any
   const isAuth = useAuth();
 
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const setAuth = useAuthActions();
 
   useEffect(() => {
@@ -49,11 +49,13 @@ const LoginForm = () => {
       const { data } = await loginUser(values);
       setAuth(data);
       localStorage.setItem("authState", JSON.stringify(data));
-      setError(null);
-      navigate(`/${redirect}`);
+      setErrorMessage(null);
+      navigate(`${redirect}`);
+      toast.success("Logged in successfully");
     } catch (error) {
       if (error.response) {
-        setError(error.response.data.message);
+        setErrorMessage(error.response.data.message);
+        toast.error(errorMessage);
       }
     }
   };
@@ -94,7 +96,6 @@ const LoginForm = () => {
           />
         </form>
       </div>
-      {error && <ErrorMessage error={error} />}
     </div>
   );
 };

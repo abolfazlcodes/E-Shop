@@ -82,6 +82,10 @@
   cursor: pointer;
 }
 
+.userName {
+  display: none;
+}
+
 @media screen and (min-width: 975px) {
   .user__icon {
     display: block;
@@ -102,5 +106,9 @@
     pointer-events: all;
     width: 40%;
     color: var(--primary-color);
+  }
+
+  .userName {
+    font-size: 1.5rem;
   }
 }

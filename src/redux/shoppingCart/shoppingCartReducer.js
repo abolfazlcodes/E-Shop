@@ -1,4 +1,5 @@
 import { ADDTO_CART, DELETE__FROM_CART } from "./shoppingCartTypes";
+import { toast } from "react-toastify";
 
 const initialState = [];
 
@@ -15,11 +16,13 @@ const shoppingCartReducer = (state = initialState, action) => {
 
       if (cartItemIndex < 0) {
         updatedCart.push({ ...action.payload });
+        toast.success("Product was added to cart");
       } else {
         const cartItem = { ...updatedCart[cartItemIndex] };
         cartItem.productNumber++;
         cartItem.price = cartItem.price * cartItem.productNumber;
         updatedCart[cartItemIndex] = cartItem;
+        toast.success(`Added ${cartItem.productNumber}  to cart`);
       }
 
       return updatedCart;
@@ -31,6 +34,8 @@ const shoppingCartReducer = (state = initialState, action) => {
       const returnedCart = updatedCart.filter(
         (item) => item._id !== action.payload
       );
+
+      toast.error("Product was deleted");
 
       return returnedCart;
     }

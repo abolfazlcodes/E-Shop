@@ -8,13 +8,13 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { signupUser } from "../../Services/signupService";
 import { useEffect, useState } from "react";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 import {
   useAuth,
   useAuthActions,
 } from "../../Context/useAuthContext/AuthProvider";
 import { useQuery } from "../../Hooks/useQuery";
+import { toast } from "react-toastify";
 
 const initialValues = {
   firstName: "",
@@ -59,7 +59,7 @@ const validationSchema = yup.object({
 });
 
 const SignupForm = () => {
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
   const setAuth = useAuthActions();
   const query = useQuery();
@@ -87,11 +87,13 @@ const SignupForm = () => {
       const { data } = await signupUser(userData);
       setAuth(data);
       localStorage.setItem("authState", JSON.stringify(data));
-      setError(null);
-      navigate(`/${redirect}`);
+      setErrorMessage(null);
+      navigate(`${redirect}`);
+      toast.success("Account was created successfully");
     } catch (error) {
       if (error.response) {
-        setError(error.response.data.message);
+        setErrorMessage(error.response.data.message);
+        toast.error(errorMessage);
       }
     }
   };
@@ -153,8 +155,6 @@ const SignupForm = () => {
           />
         </form>
       </div>
-
-      {error && <ErrorMessage error={error} />}
     </div>
   );
 };
