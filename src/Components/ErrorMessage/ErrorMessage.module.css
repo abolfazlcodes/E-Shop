@@ -1,0 +1,7 @@
+.error__message {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  margin: 1rem 0;
+}
