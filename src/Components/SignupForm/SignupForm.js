@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { signupUser } from "../../Services/signupService";
 import { useState } from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   firstName: "",
@@ -54,6 +55,7 @@ const validationSchema = yup.object({
 
 const SignupForm = () => {
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const onSubmit = async (values) => {
     const { firstName, lastName, email, password, phoneNumber } = values;
@@ -67,8 +69,9 @@ const SignupForm = () => {
     };
 
     try {
-      const res = await signupUser(userData);
+      await signupUser(userData);
       setError(null);
+      navigate("/products");
     } catch (error) {
       if (error.response) {
         setError(error.response.data.message);
