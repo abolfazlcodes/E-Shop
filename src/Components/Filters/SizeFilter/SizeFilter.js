@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./SizeFilter.module.css";
 
 const SizeFilter = ({ size, sizeChangeHandler }) => {
