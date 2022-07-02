@@ -47,6 +47,9 @@ const ProductDetails = () => {
     setProductNumber((prevState) => prevState - 1);
   };
 
+  const localFavouritesData =
+    JSON.parse(localStorage.getItem("favourites")) || [];
+
   useEffect(() => {
     dispatch(fetchOneProductAsync(id));
   }, [favourite]);
@@ -74,7 +77,12 @@ const ProductDetails = () => {
           className={`${styles.like__icon}`}
           onClick={toggleFavouriteHandler}
         >
-          {renderLikeIcon(checkIfInfavouries(product._id, favouriteProducts))}
+          {renderLikeIcon(
+            checkIfInfavouries(
+              product._id,
+              localFavouritesData || favouriteProducts
+            )
+          )}
         </div>
       </div>
       <div className={`${styles.product__detail}`}>

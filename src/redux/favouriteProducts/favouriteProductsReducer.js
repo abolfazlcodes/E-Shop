@@ -7,7 +7,7 @@ const initialState = [];
 
 const favouritesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TO_FAVOURITES:
+    case ADD_TO_FAVOURITES: {
       const updatedCart = [...state];
       const cartItemIndex = updatedCart.findIndex(
         (item) => item._id === action.payload._id
@@ -16,19 +16,17 @@ const favouritesReducer = (state = initialState, action) => {
       if (cartItemIndex < 0) {
         updatedCart.push({ ...action.payload });
       }
-      console.log(updatedCart);
-
+      localStorage.setItem("favourites", JSON.stringify(updatedCart));
       return updatedCart;
-
-    case DELETE_FROM_FAVOURITES:
-      const updatedFavourites = [...state];
-      console.log(updatedFavourites);
-      return [
-        ...updatedFavourites.filter(
-          (cartItem) => cartItem._id !== action.payload._id
-        ),
-      ];
-
+    }
+    case DELETE_FROM_FAVOURITES: {
+      const clonedFavourites = [...state];
+      const updatedFavourites = clonedFavourites.filter(
+        (cartItem) => cartItem._id !== action.payload._id
+      );
+      localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
+      return updatedFavourites;
+    }
     default:
       return state;
   }

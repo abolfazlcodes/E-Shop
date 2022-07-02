@@ -13,6 +13,9 @@ const Product = ({ product }) => {
 
   useEffect(() => {}, [favouriteProducts]);
 
+  const localFavouritesData =
+    JSON.parse(localStorage.getItem("favourites")) || [];
+
   return (
     <NavLink
       className={`${styles.product}`}
@@ -31,7 +34,12 @@ const Product = ({ product }) => {
       </div>
 
       <div className={`${styles.like__icon} ${styles.liked}}`}>
-        {renderLikeIcon(checkIfInfavouries(product._id, favouriteProducts))}
+        {renderLikeIcon(
+          checkIfInfavouries(
+            product._id,
+            localFavouritesData || favouriteProducts
+          )
+        )}
       </div>
     </NavLink>
   );
