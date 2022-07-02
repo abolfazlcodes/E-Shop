@@ -10,7 +10,7 @@ const SignupFormButtons = ({
   return (
     <div className={`${styles.signup__form__btn}`}>
       <button
-        href="#"
+        type="submit"
         className={`${styles.btn} ${styles.signup__form__btn__submit}`}
         disabled={!formik.isValid}
       >

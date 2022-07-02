@@ -6,18 +6,13 @@ import PasswordInputComponent from "../PasswordInput/PasswordInputComponent";
 import SignupFormButtons from "../SignupForm/SignupFormButtons/SignupFormButtons";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { useState } from "react";
+import { loginUser } from "../../Services/loginService";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const initialValues = {
   email: "",
   password: "",
-};
-
-const onSubmit = (values) => {
-  console.log(values);
-  // axios
-  //   .post(`http://localhost:3001/users`, values)
-  //   .then((res) => notify.show("Toasty!"))
-  //   .catch((err) => console.log(err));
 };
 
 const validationSchema = yup.object({
@@ -29,6 +24,19 @@ const validationSchema = yup.object({
 });
 
 const LoginForm = () => {
+  const [error, setError] = useState(null);
+
+  const onSubmit = async (values) => {
+    try {
+      const res = await loginUser(values);
+      setError(null);
+    } catch (error) {
+      if (error.response) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit,
@@ -41,7 +49,10 @@ const LoginForm = () => {
     <div className={`${styles.signup__wrapper}`}>
       <div className={`${styles.form}`}>
         <FormHeader headerTitle="Login to your account" />
-        <form className={`${styles.signup__form}`}>
+        <form
+          className={`${styles.signup__form}`}
+          onSubmit={formik.handleSubmit}
+        >
           <InputComponent
             formik={formik}
             name="email"
@@ -62,6 +73,7 @@ const LoginForm = () => {
           />
         </form>
       </div>
+      {error && <ErrorMessage error={error} />}
     </div>
   );
 };
