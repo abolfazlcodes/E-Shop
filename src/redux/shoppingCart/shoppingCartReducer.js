@@ -4,8 +4,10 @@ const initialState = [];
 
 const shoppingCartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADDTO_CART:
+    case ADDTO_CART: {
       const updatedCart = [...state];
+
+      console.log(action.payload);
       // check if product is inside the cart
       const cartItemIndex = updatedCart.findIndex(
         (item) => item._id === action.payload._id
@@ -21,13 +23,17 @@ const shoppingCartReducer = (state = initialState, action) => {
       }
 
       return updatedCart;
-
-    case DELETE__FROM_CART:
+    }
+    case DELETE__FROM_CART: {
       console.log(state);
-      return [
-        ...state,
-        ...state.filter((cartItem) => cartItem._id !== action.payload._id),
-      ];
+      const updatedCart = [...state];
+
+      const returnedCart = updatedCart.filter(
+        (item) => item._id !== action.payload
+      );
+
+      return returnedCart;
+    }
     default:
       return state;
   }

@@ -24,7 +24,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const [productNumber, setProductNumber] = useState(1);
   const [productSize, setProductSize] = useState("");
-  const [productColor, setProductColor] = useState("");
+  const [productColor, setProductColor] = useState("black");
   const [favourite, setFavourite] = useState(false);
   const { loading, product, error } = productData;
   const { id } = useParams();
