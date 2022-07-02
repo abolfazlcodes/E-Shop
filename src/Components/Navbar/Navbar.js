@@ -7,6 +7,7 @@ import {
   MdOutlineMenu,
 } from "react-icons/md";
 import { useState } from "react";
+import { IconContext } from "react-icons/lib";
 
 const Navbar = () => {
   const [hideMenu, setHideMenue] = useState(false);
@@ -49,16 +50,22 @@ const Navbar = () => {
 
       <div className={`${styles.action__btns}`}>
         <span className={`${styles.btns} ${styles.cart__btn}`}>
-          <MdShoppingCart className={`${styles.icons}`} />
+          <NavLink to="/cart">
+            <IconContext.Provider value={{ color: "#161513" }}>
+              <MdShoppingCart className={`${styles.icons}`} />
+            </IconContext.Provider>
+          </NavLink>
         </span>
         <span className={`${styles.btns} ${styles.menu__btn}`}>
-          <MdOutlinePersonOutline
-            className={`${styles.icons} ${styles.user__icon}`}
-          />
-          <MdOutlineMenu
-            className={`${styles.icons} ${styles.menu__icon}`}
-            onClick={showMenuHandler}
-          />
+          <IconContext.Provider value={{ color: "#161513" }}>
+            <MdOutlinePersonOutline
+              className={`${styles.icons} ${styles.user__icon}`}
+            />
+            <MdOutlineMenu
+              className={`${styles.icons} ${styles.menu__icon}`}
+              onClick={showMenuHandler}
+            />
+          </IconContext.Provider>
         </span>
       </div>
     </nav>
