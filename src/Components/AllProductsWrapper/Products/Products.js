@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "../../../redux/products/productsActions";
 import { useLocation } from "react-router-dom";
+import ErrorMessage from "../../ErrorMessage/ErrorMessage";
 
 const Products = ({ size, price, query, filterTag }) => {
   const productsData = useSelector((state) => state.products);
@@ -18,9 +19,11 @@ const Products = ({ size, price, query, filterTag }) => {
   }, []);
 
   const render = (loading, products, error) => {
-    if (loading) return <p>Loading products. Please wait ...</p>;
+    if (loading)
+      return <ErrorMessage error="Loading products. Please wait ..." />;
 
-    if (!loading && error) return <p>{error}</p>;
+    if (!loading && error)
+      return <ErrorMessage error="Something went wrong ..." />;
 
     if (products && products.length) {
       return category
@@ -91,7 +94,7 @@ const Products = ({ size, price, query, filterTag }) => {
         }
 
         if (minimumPrice === "100") {
-          return <p>No products matched</p>;
+          return <ErrorMessage error="No product was matched!" />;
         }
 
         const filteredProducts = productsItems.filter((item) => {

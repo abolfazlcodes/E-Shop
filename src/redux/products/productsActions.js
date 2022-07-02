@@ -35,7 +35,7 @@ export const fetchProducts = () => {
         dispatch(fetchProductsSuccess(products));
       })
       .catch((err) => {
-        dispatch(fetchProductsFailure(err.message));
+        dispatch(fetchProductsFailure(err));
       });
   };
 };
