@@ -7,10 +7,14 @@ import InputCheckboxComponent from "../InputCheckboxComponent/InputCheckboxCompo
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { signupUser } from "../../Services/signupService";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useNavigate } from "react-router-dom";
-import { useAuthActions } from "../../Context/useAuthContext/AuthProvider";
+import {
+  useAuth,
+  useAuthActions,
+} from "../../Context/useAuthContext/AuthProvider";
+import { useQuery } from "../../Hooks/useQuery";
 
 const initialValues = {
   firstName: "",
@@ -58,6 +62,15 @@ const SignupForm = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const setAuth = useAuthActions();
+  const query = useQuery();
+  const redirect = query.get("redirect") || "/";
+  const isAuth = useAuth();
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate(`/${redirect}`);
+    }
+  }, [isAuth, redirect]);
 
   const onSubmit = async (values) => {
     const { firstName, lastName, email, password, phoneNumber } = values;
@@ -75,7 +88,7 @@ const SignupForm = () => {
       setAuth(data);
       localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
-      navigate("/products");
+      navigate(`/${redirect}`);
     } catch (error) {
       if (error.response) {
         setError(error.response.data.message);
@@ -134,7 +147,7 @@ const SignupForm = () => {
           <InputCheckboxComponent formik={formik} name="terms" />
           <SignupFormButtons
             buttonText="Sign up"
-            linkTo="/login"
+            linkTo={`/login?redirect=${redirect}`}
             switchFormButtonText="Already have an account? Login"
             formik={formik}
           />

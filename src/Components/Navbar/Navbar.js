@@ -73,7 +73,9 @@ const Navbar = () => {
         <span className={`${styles.btns} ${styles.menu__btn}`}>
           <IconContext.Provider value={{ color: "#161513" }}>
             {userData ? (
-              <span className={`${styles.userName}`}>{userData.name}</span>
+              <span className={`${styles.userName}`}>
+                {userData.name.split(" ")[0]}
+              </span>
             ) : (
               <NavLink to="/login">
                 <MdOutlinePersonOutline
