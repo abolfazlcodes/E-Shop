@@ -14,10 +14,13 @@ app.use(express.urlencoded({ extended: true })); // parses application/x-www-for
 
 // Connect to DB
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://abolfazljmd1:Abolfazl*1379@e-shop.rkh80.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("MongoDB connected!!");
   })

@@ -29,7 +29,7 @@ export const fetchOneProductAsync = (id) => {
   return (dispatch) => {
     dispatch(fetchOneProductRequest());
     axios
-      .get(`http://localhost:5000/api/product/${id}`)
+      .get(`/product/${id}`)
       .then((res) => {
         const product = res.data;
         dispatch(fetchOneProductSuccess(product));

@@ -1,8 +1,8 @@
 ###
-GET http://localhost:5000/api/product HTTP/1.1
+GET https://eshop-clothings.herokuapp.com/api/product HTTP/1.1
 
 ###
-POST http://localhost:5000/api/user/login HTTP/1.1
+POST https://eshop-clothings.herokuapp.com/api/user/login HTTP/1.1
 content-type: application/json
 
 {
@@ -12,7 +12,7 @@ content-type: application/json
 
 
 ###
-POST http://localhost:5000/api/user/register HTTP/1.1
+POST https://eshop-clothings.herokuapp.com/api/user/register HTTP/1.1
 content-type: application/json
 
 {
