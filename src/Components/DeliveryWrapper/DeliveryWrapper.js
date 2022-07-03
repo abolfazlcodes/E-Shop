@@ -2,7 +2,6 @@ import styles from "./DeliveryWrapper.module.css";
 import Delivery from "./DeliveryComponent/Delivery";
 import deliveryLogo2 from "../../assets/delivery-1.png";
 import deliveryLogo from "../../assets/delivery-2.png";
-import { useState } from "react";
 
 const DeliveryWrapper = ({ deliveryTypeName, setDeliveryTypeName }) => {
   const changeDeliveryTypeHandler = (type) => {

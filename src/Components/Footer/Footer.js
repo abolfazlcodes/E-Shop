@@ -1,10 +1,10 @@
 import styles from "./Footer.module.css";
 import logo from "../../assets/Logo.svg";
-import facebook from "../../assets/002-facebook-logo.svg";
-import twitter from "../../assets/001-twitter-logo-silhouette.svg";
-import linkdin from "../../assets/004-linkedin-logo.svg";
+import facebook from "../../assets/facebook-logo.svg";
+import twitter from "../../assets/twitter-logo.svg";
+import linkdin from "../../assets/linkedin-logo.svg";
 import instagram from "../../assets/instagram.svg";
-import youtube from "../../assets/005-youtube.svg";
+import youtube from "../../assets/youtube.svg";
 
 const Footer = () => {
   return (

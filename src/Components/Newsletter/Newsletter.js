@@ -1,6 +1,5 @@
 import styles from "./Newsletter.module.css";
 import newsletter from "../../assets/newsletter1.jpg";
-import newsletter2 from "../../assets/newsletter-2.jpg";
 
 const Newsletter = () => {
   return (

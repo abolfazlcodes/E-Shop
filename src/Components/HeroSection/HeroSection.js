@@ -1,7 +1,5 @@
 import styles from "./HeroSection.module.css";
-import backgroundImage1 from "../../assets/hero-cover-1.jpg";
-import backgroundImage2 from "../../assets/hero-cover-2.jpg";
-import backgroundImage3 from "../../assets/hero-cover-3.jpg";
+import backgroundImage1 from "../../assets/hero-cover.jpg";
 import { NavLink } from "react-router-dom";
 
 const HeroSection = () => {
